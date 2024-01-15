@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/authentication_nav"
+    app:startDestination="@id/regFragment">
+    <!--regFragment-->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.big9.app.ui.fragment.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_otpFragment"
+            app:destination="@id/otpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/otpFragment"
+        android:name="com.big9.app.ui.fragment.OtpFragment"
+        android:label="OtpFragment" >
+        <action
+            android:id="@+id/action_otpFragment_to_congratulationFragment"
+            app:destination="@id/congratulationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/congratulationFragment"
+        android:name="com.big9.app.ui.fragment.CongratulationFragment"
+        android:label="CongratulationFragment" />
+    <fragment
+        android:id="@+id/regFragment"
+        android:name="com.big9.app.ui.fragment.regandkyc.RegFragment"
+        android:label="RegFragment" >
+
+        <action
+            android:id="@+id/action_regFragment_to_kycDetailsFragment"
+            app:destination="@id/kycDetailsFragment" />
+        <action
+            android:id="@+id/action_regFragment_to_cameraFragment"
+            app:destination="@id/cameraFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/docuploadFragment"
+        android:name="com.big9.app.ui.fragment.regandkyc.DocuploadFragment"
+        android:label="DocuploadFragment" >
+        <action
+            android:id="@+id/action_docuploadFragment_to_cameraFragment"
+            app:destination="@id/cameraFragment" />
+        <action
+            android:id="@+id/action_docuploadFragment_to_videoRecordingFragment"
+            app:destination="@id/videoRecordingFragment" />
+        <action
+            android:id="@+id/action_docuploadFragment_to_pdfCaptureFragment"
+            app:destination="@id/pdfCaptureFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/kycDetailsFragment"
+        android:name="com.big9.app.ui.fragment.regandkyc.KycDetailsFragment"
+        android:label="KycDetailsFragment" >
+
+        <action
+            android:id="@+id/action_kycDetailsFragment_to_bankDetailsFragment"
+            app:destination="@id/bankDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bankDetailsFragment"
+        android:name="com.big9.app.ui.fragment.regandkyc.BankDetailsFragment"
+        android:label="BankDetailsFragment" >
+        <action
+            android:id="@+id/action_bankDetailsFragment_to_docuploadFragment"
+            app:destination="@id/docuploadFragment" />
+        <action
+            android:id="@+id/action_bankDetailsFragment_to_cameraFragment"
+            app:destination="@id/cameraFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="com.big9.app.ui.fragment.regandkyc.CameraFragment"
+        android:label="CameraFragment" >
+        <action
+            android:id="@+id/action_cameraFragment_to_docuploadFragment"
+            app:destination="@id/docuploadFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/videoRecordingFragment"
+        android:name="com.big9.app.ui.fragment.regandkyc.VideoRecordingFragment"
+        android:label="VideoRecordingFragment" />
+    <fragment
+        android:id="@+id/pdfCaptureFragment"
+        android:name="com.big9.app.ui.fragment.regandkyc.PdfCaptureFragment"
+        android:label="PdfCaptureFragment" />
+
+</navigation>

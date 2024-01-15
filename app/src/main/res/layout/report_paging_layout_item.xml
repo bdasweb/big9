@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="model"
+            type="com.big9.app.utils.table.DataEntity" />
+        <variable
+            name="propertyModel"
+            type="com.big9.app.data.model.ReportPropertyModel" />
+    </data>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_2sdp"
+        app:cardBackgroundColor="@color/white"
+        android:layout_margin="@dimen/_3sdp"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_header"
+
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!--android:text="@{model.amt+` | 20 days`}"-->
+            <View
+                android:id="@+id/view2"
+                android:layout_width="@dimen/_10sdp"
+                android:layout_height="0dp"
+                android:background="@color/logo_second_color"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/linearLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="@dimen/_10sdp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toEndOf="@+id/view2"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout5"
+                    android:layout_width="0dp"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{propertyModel.id}"
+                        android:textColor="@color/logo_second_color_opacity"
+                        tools:text="id" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{model.responseId}"
+                        android:textColor="@color/logo_second_color_opacity"
+                        tools:text="id" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{propertyModel.price}"
+                        android:textColor="@color/black"
+                        tools:text="price" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:text="@{`₹`+model.price}"
+                        android:textColor="@{model.proce1TextColor==1?@color/g5:model.proce1TextColor==0?@color/black:@color/g4}"
+                        tools:text="price" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_price2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:text="@{model.price2}"
+                    android:textColor="@color/logo_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
+                    tools:text="price" />
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{model.reportDate}"
+                    tools:text="10-10-2023"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{model.reporyStatus}"
+                    android:textColor="@{model.reporyStatusFlag==1?@color/g5:model.reporyStatusFlag==0?@color/g4:model.reporyStatusFlag==2?@color/gray:@color/title_container  }"
+                    android:visibility="@{model.reporyStatus==``?View.GONE:View.VISIBLE}"
+                    app:layout_constraintStart_toStartOf="@+id/linearLayout5"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_date"
+                    tools:text="success" />
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/default_1"
+                    android:visibility="@{model.image1==1?View.VISIBLE:View.GONE}"
+                    android:shadowColor="@color/black"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
+                    app:setImage="@{model.imageInt}" />
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/montserrat_regular_400"
+                    android:text="@{model.desc}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_8ssp"
+                    android:visibility="@{model.desc==``?View.GONE:View.VISIBLE}"
+                    app:layout_constraintEnd_toStartOf="@+id/profile_image"
+                    app:layout_constraintStart_toStartOf="@+id/textView15"
+                    app:layout_constraintTop_toBottomOf="@+id/textView15"
+                    tools:text="desc" />
+                <!--app:civ_border_width="@dimen/_1sdp"-->
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="33dp"
+                    android:layout_height="33dp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:src="@drawable/default_1"
+                    android:visibility="@{model.image1==2?View.VISIBLE:View.GONE}"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView16"
+                    app:setImage="@{model.imageInt}" />
+
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:background="@drawable/btn_bg"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:paddingVertical="@dimen/_1sdp"
+                    android:text="@{model.miniStatementValue}"
+                    android:textColor="@color/white"
+                    android:visibility="@{model.isMiniStatement==true?View.VISIBLE:View.GONE }"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView16"
+                    tools:text="Mini Statement" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

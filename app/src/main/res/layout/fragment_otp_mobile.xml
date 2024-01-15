@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.big9.app.data.viewMovel.AuthViewModel" />
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cons_otp"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="62dp"
+                android:layout_height="62dp"
+                android:src="@drawable/user"
+                android:layout_margin="20dp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/open_sans_e_bold"
+                android:text="User Name"
+                android:visibility="gone"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/profile_image"
+                app:layout_constraintStart_toEndOf="@+id/profile_image"
+                app:layout_constraintTop_toTopOf="@+id/profile_image"
+                app:layout_constraintVertical_bias="0.07999998" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="9800000000"
+                android:textColor="@color/pink2"
+                android:textSize="18sp"
+                android:visibility="gone"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/profile_image"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+
+            <TextView
+                android:id="@+id/tv_switch_acc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/user_switch"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/title_header2"
+                android:fontFamily="@font/montserrat_medium_500"
+                android:gravity="center"
+                android:text="Switch Account"
+                android:textColor="@color/title_header2"
+                android:textSize="18sp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                app:layout_constraintBottom_toTopOf="@+id/textView4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_7sdp"
+                android:text="Enter your OTP"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/pin_view"
+                app:layout_constraintStart_toStartOf="@+id/pin_view" />
+
+            <com.chaos.view.PinView
+                android:id="@+id/pin_view"
+                style="@style/PinWidget.PinView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:cursorVisible="true"
+                android:elevation="@dimen/_8sdp"
+                android:inputType="number"
+                android:itemBackground="@drawable/pinview_items_back"
+                android:text="@{viewModel.otp}"
+                android:clickable="false"
+                android:gravity="center"
+
+                android:textColor="@color/pink1"
+                android:textSize="@dimen/_18ssp"
+                android:fontFamily="@font/montserrat_regular_400"
+                android:focusable="false"
+                app:cursorColor="@color/pink1"
+                app:cursorWidth="@dimen/_2sdp"
+                app:elevation="@dimen/_8sdp"
+                app:hideLineWhenFilled="true"
+                app:itemCount="6"
+                app:itemHeight="@dimen/_48sdp"
+                app:itemRadius="@dimen/_4sdp"
+                app:itemSpacing="0dp"
+                app:itemWidth="@dimen/_48sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent"
+
+                app:layout_constraintVertical_bias="0.44"
+                app:lineColor="@color/gray"
+                app:lineWidth="@dimen/_2sdp"
+                app:viewType="rectangle" />
+
+            <TextView
+                android:id="@+id/td_resend_otp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_confirm_otp"
+                tools:text="@string/resend_otp" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_confirm_otp"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+
+                android:background="@drawable/teal_button_bg"
+                android:fontFamily="@font/russo_one"
+                android:padding="10dp"
+                android:text="@string/verifyRMN"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/pin_view"
+                app:layout_constraintTop_toBottomOf="@+id/pin_view"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nestedScrollView2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/td_resend_otp">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycle_phonePad2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="3"
+                    tools:listitem="@layout/keypad_layout" />
+            </androidx.core.widget.NestedScrollView>
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottie_confetti_anim"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:scaleType="fitXY"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lottie_autoPlay="false"
+                app:lottie_loop="false"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

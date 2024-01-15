@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="viewpager_page_offset">16</dimen>
+    <item name="viewpager_page_scale" format="float" type="dimen">0.8</item>
+    <dimen name="viewpager_next_item_visible">125dp</dimen>
+    <dimen name="viewpager_current_item_horizontal_margin">58dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_size">@dimen/_11ssp</dimen>
+    <dimen name="edit_text_height">@dimen/_28sdp</dimen>
+    <dimen name="edit_text_size">@dimen/_14sdp</dimen>
+    <dimen name="edit_text_height_address">@dimen/_70sdp</dimen>
+    <dimen name="edit_text_title_margin_top">@dimen/_10sdp</dimen>
+    <dimen name="edit_text_margin_top">@dimen/_5sdp</dimen>
+    <dimen name="text_size_9ssp">@dimen/_9ssp</dimen>
+    <dimen name="spacing_medium">16dp</dimen>
+    <dimen name="spacing_small">5dp</dimen>
+
+    <dimen name="corner_radius">8dp</dimen>
+    <dimen name="btn_vertical_padding">12dp</dimen>
+    <dimen name="btn_horizontal_padding">16dp</dimen>
+    <dimen name="margin_standard">16dp</dimen>
+    <dimen name="btn_height">@dimen/_40sdp</dimen>
+</resources>

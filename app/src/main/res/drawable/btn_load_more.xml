@@ -1,0 +1,9 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/logo_color" /> <!-- Background color -->
+    <corners android:radius="@dimen/corner_radius" /> <!-- Corner radius -->
+    <padding
+        android:bottom="@dimen/btn_vertical_padding"
+        android:left="@dimen/btn_horizontal_padding"
+        android:right="@dimen/btn_horizontal_padding"
+        android:top="@dimen/btn_vertical_padding" /> <!-- Padding -->
+</shape>

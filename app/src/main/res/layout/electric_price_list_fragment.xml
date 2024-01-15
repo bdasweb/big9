@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.big9.app.data.viewMovel.MyViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.DashBoardActivity">
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/baseline_arrow_back_24" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingVertical="@dimen/_8sdp"
+                android:scaleType="fitStart"
+                android:src="@drawable/epay_logo" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView9"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/logo_second_color"
+            android:drawableEnd="@drawable/arrow_drop_down"
+            android:fontFamily="@font/open_sans_e_bold"
+            android:paddingStart="@dimen/_10sdp"
+            android:text="Bill Cycle"
+            android:textColor="@color/logo_color"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_65sdp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycle_operator"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:spanCount="1"
+                android:paddingBottom="@dimen/_40sdp"
+                tools:listitem="@layout/electric_price_list_state_list" />
+        </androidx.core.widget.NestedScrollView>
+
+        <TextView
+            android:id="@+id/tv_procid_to_pay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:text="Proceed To Pay"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_regular_400"
+            android:background="@color/logo_color"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

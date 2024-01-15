@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+<data>
+<variable
+    name="model"
+    type="com.big9.app.data.model.ElectricModel2" />
+</data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/cl_header"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/img_electric_biller"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/default_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:text="@{model.biller_name}"
+        app:layout_constraintBottom_toBottomOf="@+id/img_electric_biller"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_electric_biller"
+        app:layout_constraintTop_toTopOf="@+id/img_electric_biller"
+        tools:text="CESC Limited" />
+
+    <View
+        android:id="@+id/view_hr"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_1sdp"
+
+        android:background="@color/gray"
+        app:layout_constraintTop_toBottomOf="@+id/textView12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_electric_biller" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_5sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_hr"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+    </layout>

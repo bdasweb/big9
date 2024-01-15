@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+
+        <variable
+            name="viewModel"
+            type="com.big9.app.data.viewMovel.MyViewModel" />
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray"
+        tools:context=".ui.activity.DashBoardActivity">
+
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:shadowRadius="@dimen/_8sdp"
+                tools:context=".ui.activity.DashBoardActivity">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardCornerRadius="@dimen/_12sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_10sdp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_bold"
+                            android:gravity="center"
+                            android:text="Reset TPIN"
+                            android:textColor="@color/logo_color"
+                            android:textSize="@dimen/_14ssp" />
+
+
+                        <TextView
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                            android:fontFamily="@font/montserrat_medium_500"
+                            android:text="Old Login PIN"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size" />
+
+                        <EditText
+                            android:visibility="gone"
+                            android:id="@+id/et_institutetype"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edit_text_height"
+                            android:layout_marginTop="@dimen/edit_text_margin_top"
+                            android:background="@drawable/field_bg"
+                            android:hint="@string/subscriber_id"
+                            android:text="@={viewModel.subId}"
+                            android:drawableStart="@android:drawable/ic_lock_lock"
+                            app:requestFocus="@{viewModel.subIdErrorVisible}"
+                            android:inputType="textWebPassword"
+                            android:longClickable="false"
+                            android:maxLength="10"
+                            android:padding="@dimen/_5sdp"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="@dimen/edit_text_size" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_regular_400"
+                            android:textColor="@color/pink2"
+                            android:textSize="@dimen/_9ssp"
+                            android:text="@{viewModel.subIdError}"
+                            app:hideErrorTextView="@{viewModel.subIdErrorVisible}"
+                            />
+                        <!--mobile End-->
+
+
+
+
+
+
+
+                        <TextView
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                            android:fontFamily="@font/montserrat_medium_500"
+                            android:text="New Login PIN"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size" />
+
+                        <EditText
+                            android:visibility="gone"
+                            android:id="@+id/et_new_login_pin"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edit_text_height"
+                            android:layout_marginTop="@dimen/edit_text_margin_top"
+                            android:background="@drawable/field_bg"
+                            android:hint="@string/enter_amount"
+                            android:text="@={viewModel.dthAmt}"
+                            app:requestFocus="@{viewModel.dthAmtErrorVisible}"
+                            android:longClickable="false"
+                            android:maxLength="10"
+                            android:inputType="textWebPassword"
+                            android:padding="@dimen/_5sdp"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:drawableStart="@android:drawable/ic_lock_lock"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="@dimen/edit_text_size" />
+
+                        <TextView
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_regular_400"
+                            android:textColor="@color/pink2"
+                            android:textSize="@dimen/_9ssp"
+                            android:text="@{viewModel.dthAmtError}"
+                            app:hideErrorTextView="@{viewModel.dthAmtErrorVisible}"
+                            />
+
+                        <TextView
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                            android:fontFamily="@font/montserrat_medium_500"
+                            android:text="Old Login PIN"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size" />
+
+                        <EditText
+                            android:visibility="gone"
+                            android:id="@+id/et_amt"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edit_text_height"
+                            android:layout_marginTop="@dimen/edit_text_margin_top"
+                            android:background="@drawable/field_bg"
+                            android:hint="@string/enter_amount"
+                            android:inputType="textWebPassword"
+                            android:text="@={viewModel.dthAmt}"
+                            app:requestFocus="@{viewModel.dthAmtErrorVisible}"
+                            android:longClickable="false"
+                            android:maxLength="10"
+                            android:padding="@dimen/_5sdp"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:drawableStart="@android:drawable/ic_lock_lock"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="@dimen/edit_text_size" />
+
+                        <TextView
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_regular_400"
+                            android:textColor="@color/pink2"
+                            android:textSize="@dimen/_9ssp"
+                            android:text="@{viewModel.dthAmtError}"
+                            app:hideErrorTextView="@{viewModel.dthAmtErrorVisible}"
+                            />
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+                <Button
+                    android:id="@+id/btn_submit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="end"
+                    android:layout_marginVertical="@dimen/_10sdp"
+                    android:background="@drawable/btn_bg"
+                    android:padding="@dimen/_5sdp"
+                    android:text="@string/reset_tpin"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/cardView2"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="black2">#DC353131</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="gray_white">#eef0ff</color>
+    <color name="c1">#00BCD4</color>
+    <color name="c2">#2196F3</color>
+    <color name="g1">#a9e593</color>
+    <color name="g3">#F44336</color>
+    <color name="g5">#27ae61</color>
+    <color name="g4">#72110A</color>
+    <color name="pink1">#182b6a</color>
+    <color name="pink2">#EA5084</color>
+    <color name="gray">#D9DDF1</color>
+    <color name="gray5">#7CD9DDF1</color>
+    <color name="gray2">#e7ebee</color>
+    <color name="gray3">#e8ecef</color>
+    <color name="gray4">#d4d7db</color>
+    <color name="title_header">#860001</color>
+    <color name="title_header2">#860001</color>
+    <color name="title_container">#5203A9F4</color>
+    <color name="yellow">#f5cf8a</color>
+    <color name="border_color">#d0d4d9</color>
+    <color name="border_focus">#c2dbff</color>
+    <color name="title_color">#0e0e0f</color>
+    <color name="brown">#4a0405</color>
+    <color name="logo_color">#860001</color>
+    <color name="logo_second_color">#b77b1b</color>
+    <color name="logo_second_color_opacity">#9CB77B1B</color>
+    <color name="line_pin_1">#a88a6b</color>
+</resources>
+

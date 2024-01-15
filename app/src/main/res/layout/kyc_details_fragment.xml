@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.big9.app.data.viewMovel.AuthViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rootView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg"
+        tools:context=".ui.activity.DashBoardActivity">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/textView7"
+            app:layout_constraintEnd_toStartOf="@+id/textView8"
+            app:layout_constraintStart_toEndOf="@+id/textView7"
+            app:layout_constraintTop_toTopOf="@+id/textView7" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/textView10"
+            app:layout_constraintEnd_toStartOf="@+id/textView10"
+            app:layout_constraintStart_toEndOf="@+id/textView8"
+            app:layout_constraintTop_toTopOf="@+id/textView10" />
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@color/g5"
+            android:gravity="center"
+            android:text="1"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintEnd_toEndOf="@+id/button"
+            app:layout_constraintStart_toStartOf="@+id/button" />
+        <TextView
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/kyc_details"
+            android:textSize="@dimen/text_size_9ssp"
+            android:textColor="@color/title_color"
+            android:fontFamily="@font/montserrat_regular_400"
+            android:layout_marginTop="@dimen/_40sdp"
+            app:layout_constraintEnd_toStartOf="@+id/button2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@color/brown"
+            android:gravity="center"
+            android:text="2"
+            app:layout_constraintBottom_toTopOf="@+id/button2"
+            app:layout_constraintEnd_toEndOf="@+id/button2"
+            app:layout_constraintStart_toStartOf="@+id/button2" />
+        <TextView
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bank_details"
+            android:textSize="@dimen/text_size_9ssp"
+            android:fontFamily="@font/montserrat_regular_400"
+            android:textColor="@color/title_color"
+            app:layout_constraintEnd_toStartOf="@+id/button3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button"
+            app:layout_constraintTop_toTopOf="@+id/button" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@color/brown"
+            android:gravity="center"
+            android:text="3"
+            app:layout_constraintBottom_toTopOf="@+id/button3"
+            app:layout_constraintEnd_toEndOf="@+id/button3"
+            app:layout_constraintStart_toStartOf="@+id/button3" />
+
+        <TextView
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular_400"
+            android:text="@string/doc_upload"
+            android:textSize="@dimen/text_size_9ssp"
+            android:textColor="@color/title_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button2"
+            app:layout_constraintTop_toTopOf="@+id/button2" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:cardCornerRadius="@dimen/_12sdp"
+            android:layout_margin="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button">
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/white"
+                    android:padding="@dimen/_10sdp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="KYC Details"
+                        android:textColor="@color/black"
+                        android:gravity="center_horizontal"
+                        android:textSize="@dimen/_18ssp"
+                        android:fontFamily="@font/open_sans_e_bold"
+                        />
+                    <!--business_type start-->
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                        android:fontFamily="@font/montserrat_medium_500"
+                        android:textSize="@dimen/text_size"
+                        android:text="@string/business_type"/>
+                    <Spinner
+                        android:id="@+id/spinner_business_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edit_text_height"
+                        android:inputType="textCapWords"
+                        android:paddingVertical="@dimen/_5sdp"
+                        android:paddingEnd="@dimen/_5sdp"
+                        android:paddingStart="@dimen/_2sdp"
+                        android:textSize="@dimen/edit_text_size"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:background="@drawable/field_bg"
+                        android:popupBackground="@color/gray2"
+                        android:layout_marginTop="@dimen/edit_text_margin_top"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/montserrat_regular_400"
+
+
+                        android:textColor="@color/pink2"
+                        android:textSize="@dimen/_9ssp"
+                        android:text="@{viewModel.businessTypeError}"
+                        app:hideErrorTextView="@{viewModel.businessTypeErrorVisible}" />
+                    <!--business_category start-->
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                        android:fontFamily="@font/montserrat_medium_500"
+                        android:textSize="@dimen/text_size"
+                        android:text="@string/business_category"/>
+                    <Spinner
+                        android:id="@+id/spinner_business_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edit_text_height"
+                        android:inputType="textCapWords"
+                        android:paddingVertical="@dimen/_5sdp"
+                        android:paddingEnd="@dimen/_5sdp"
+                        android:paddingStart="@dimen/_2sdp"
+                        android:textSize="@dimen/edit_text_size"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:background="@drawable/field_bg"
+                        android:popupBackground="@color/gray2"
+                        android:layout_marginTop="@dimen/edit_text_margin_top"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/montserrat_regular_400"
+
+
+                        android:textColor="@color/pink2"
+                        android:textSize="@dimen/_9ssp"
+                        android:text="@{viewModel.businessCategoryError}"
+                        app:hideErrorTextView="@{viewModel.businessCategoryErrorVisible}" />
+                    <!--partner_name-->
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                        android:fontFamily="@font/montserrat_medium_500"
+                        android:textSize="@dimen/text_size"
+                        android:text="@string/partner_name"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edit_text_height"
+                        android:inputType="text"
+                        android:text="@={viewModel.partnerNameName}"
+                        android:longClickable="false"
+                        android:textSize="@dimen/edit_text_size"
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:hint="@string/partner_name"
+                        android:layout_marginTop="@dimen/edit_text_margin_top"
+                        android:background="@drawable/field_bg"/>
+                    <!--partner_name-->
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                        android:fontFamily="@font/montserrat_medium_500"
+                        android:textSize="@dimen/text_size"
+                        android:text="@string/business_name"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edit_text_height"
+                        android:inputType="text"
+                        android:text="@={viewModel.businessName}"
+                        android:longClickable="false"
+                        android:textSize="@dimen/edit_text_size"
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:hint="@string/business_name_title"
+                        android:layout_marginTop="@dimen/edit_text_margin_top"
+                        android:background="@drawable/field_bg"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/montserrat_regular_400"
+
+
+                        android:textColor="@color/pink2"
+                        android:textSize="@dimen/_9ssp"
+                        android:text="@{viewModel.businessNameError}"
+                        app:hideErrorTextView="@{viewModel.businessNameErrorVisible}" />
+                    <!--Area start-->
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                        android:fontFamily="@font/montserrat_medium_500"
+                        android:textSize="@dimen/text_size"
+                        android:text="@string/business_address"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edit_text_height_address"
+                        android:inputType="text"
+                        android:gravity="start"
+                        android:maxLines="50"
+                        android:text="@={viewModel.businessAddress}"
+                        android:scrollbars="vertical"
+                        android:longClickable="false"
+                        android:textSize="@dimen/edit_text_size"
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:hint="@string/business_address_hint"
+                        android:layout_marginTop="@dimen/edit_text_margin_top"
+                        android:background="@drawable/field_bg"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:fontFamily="@font/montserrat_regular_400"
+
+
+                        android:textColor="@color/pink2"
+                        android:textSize="@dimen/_9ssp"
+                        android:text="@{viewModel.businessAddressError}"
+                        app:hideErrorTextView="@{viewModel.businessAddressErrorVisible}" />
+                    <!--Area start-->
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                        android:fontFamily="@font/montserrat_medium_500"
+                        android:textSize="@dimen/text_size"
+                        android:text="@string/pan_card_no_company"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edit_text_height"
+                        android:inputType="textCapCharacters"
+                        android:text="@={viewModel.companyPanCardNumber}"
+                        android:longClickable="false"
+                        android:textSize="@dimen/edit_text_size"
+                        android:padding="@dimen/_5sdp"
+                        android:maxLength="10"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:hint="@string/pan_card_no_company"
+                        android:layout_marginTop="@dimen/edit_text_margin_top"
+                        android:background="@drawable/field_bg"/>
+                    <!--Area start-->
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                        android:fontFamily="@font/montserrat_medium_500"
+                        android:textSize="@dimen/text_size"
+                        android:text="@string/pan_card_no_partner_if_any"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edit_text_height"
+                        android:inputType="textCapCharacters"
+                        android:longClickable="false"
+                        android:textSize="@dimen/edit_text_size"
+                        android:maxLength="10"
+                        android:text="@={viewModel.partnerPanCardNumber}"
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:hint="@string/pan_card_no_partner_if_any"
+                        android:layout_marginTop="@dimen/edit_text_margin_top"
+                        android:background="@drawable/field_bg"/>
+                    <!--Area start-->
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                        android:fontFamily="@font/montserrat_medium_500"
+                        android:textSize="@dimen/text_size"
+                        android:text="@string/aadhar_no_partner_if_have"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edit_text_height"
+                        android:inputType="number"
+                        android:longClickable="false"
+                        android:textSize="@dimen/edit_text_size"
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:hint="@string/aadhar_no_hint"
+                        android:maxLength="12"
+                        android:text="@={viewModel.kycAadharNumber}"
+                        android:layout_marginTop="@dimen/edit_text_margin_top"
+                        android:background="@drawable/field_bg"/>
+                    <!--Area start-->
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                        android:fontFamily="@font/montserrat_medium_500"
+                        android:textSize="@dimen/text_size"
+                        android:text="@string/gstin_no"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edit_text_height"
+                        android:inputType="text"
+                        android:longClickable="false"
+                        android:textSize="@dimen/edit_text_size"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@={viewModel.kycGSTNumber}"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:hint="@string/gstin_no"
+                        android:layout_marginTop="@dimen/edit_text_margin_top"
+                        android:background="@drawable/field_bg"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:paddingBottom="@dimen/_20sdp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/btn_save_continue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_26sdp"
+                            android:background="@drawable/teal_button_bg"
+                            android:fontFamily="@font/open_sans_e_bold"
+                            android:padding="10dp"
+                            android:gravity="center"
+                            android:minWidth="@dimen/_100sdp"
+                            android:text="@string/save_amp_continue"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/edt_ph_no"
+                            app:layout_constraintTop_toBottomOf="@+id/edt_ph_no"
+                            app:layout_constraintVertical_bias="0.0" />
+                        <View
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_1sdp"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.big9.app.data.viewMovel.MyViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/loginpin_bg_gradian"
+        tools:context=".ui.activity.DashBoardActivity">
+
+
+        <TextView
+            android:id="@+id/tv_switch_acc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:drawableStart="@drawable/add_user_icon"
+            android:drawablePadding="@dimen/_10sdp"
+            android:text="@string/switch_account"
+            android:textColor="@color/black"
+            app:drawableTint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="62dp"
+            android:layout_height="62dp"
+
+            android:src="@drawable/user"
+            app:layout_constraintBottom_toTopOf="@+id/tv_dont_receve_otp_msg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_dont_receve_otp_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_medium"
+            android:text="@{viewModel.userProfileName}"
+            tools:text="User Name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintBottom_toTopOf="@+id/td_resend_otp"
+            app:layout_constraintEnd_toEndOf="@+id/profile_image"
+            app:layout_constraintStart_toStartOf="@+id/profile_image" />
+        <!--android:text="@{viewModel.timingValue}"-->
+
+        <TextView
+            android:id="@+id/td_resend_otp"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginBottom="32dp"
+            android:clickable="false"
+            android:focusable="false"
+            android:fontFamily="@font/open_sans_medium"
+            android:longClickable="false"
+            android:gravity="center"
+            android:text="@{viewModel.userProfileMobile}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_unblock"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="9999988888" />
+
+        <TextView
+            android:id="@+id/tv_unblock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Unlock Using PIN"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_8ssp"
+            app:layout_constraintBottom_toTopOf="@+id/nestedScrollView4"
+            app:layout_constraintEnd_toEndOf="@+id/td_resend_otp"
+            app:layout_constraintStart_toStartOf="@+id/td_resend_otp" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView4"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="-205dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <com.chaos.view.PinView
+                    android:id="@+id/firstPinView"
+                    style="@style/PinWidget.PinView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:hint="Hint."
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:inputType="numberPassword"
+                    android:itemBackground="@drawable/pinview_items_back"
+                    android:longClickable="false"
+
+                    android:text="@{viewModel.loginPin}"
+                    android:textColor="@color/black"
+                    android:textSize="8sp"
+                    android:textStyle="normal"
+                    app:cursorColor="@color/pink2"
+
+                    app:hideLineWhenFilled="true"
+                    app:itemCount="6"
+                    app:itemHeight="30dp"
+                    app:itemRadius="4dp"
+                    app:itemSpacing="0dp"
+                    app:itemWidth="30dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:lineColor="@color/gray"
+                    app:lineWidth="0dp"
+
+
+                    app:viewType="none" />
+
+                <TextView
+                    android:id="@+id/tv_forgot_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="@dimen/_5sdp"
+                    android:text="Forgot PIN?"
+
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_8ssp"
+                    app:layout_constraintEnd_toEndOf="@+id/firstPinView"
+                    app:layout_constraintTop_toBottomOf="@+id/firstPinView" />
+
+                <androidx.core.widget.NestedScrollView
+                    android:id="@+id/nestedScrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="@dimen/_10sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_forgot_password">
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycle_phonePad"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                        app:spanCount="3"
+                        tools:listitem="@layout/keypad_layout_2" />
+                </androidx.core.widget.NestedScrollView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

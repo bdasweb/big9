@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/authentication_nav"
+    app:startDestination="@id/loginMobileFragment">
+
+
+    <fragment
+        android:id="@+id/loginMobileFragment"
+        android:name="com.big9.app.ui.fragment.regandkyc.LoginMobileFragment"
+        android:label="LoginMobileFragment" >
+        <action
+            android:id="@+id/action_loginMobileFragment_to_otpMobileFragment"
+            app:destination="@id/otpMobileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/otpMobileFragment"
+        android:name="com.big9.app.ui.fragment.regandkyc.OtpMobileFragment"
+        android:label="OtpMobileFragment" />
+</navigation>

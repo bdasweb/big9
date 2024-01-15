@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+
+        <variable
+            name="viewModel"
+            type="com.big9.app.data.viewMovel.MyViewModel" />
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rootView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray"
+        tools:context=".ui.activity.DashBoardActivity">
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/baseline_arrow_back_24" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingVertical="@dimen/_8sdp"
+                android:scaleType="fitStart"
+                android:src="@drawable/epay_logo" />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:shadowRadius="@dimen/_8sdp"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+            tools:context=".ui.activity.DashBoardActivity"
+            tools:layout_editor_absoluteX="13dp">
+            <!--https://lottiefiles.com/animations/reporting-kbvmxZNIhR-->
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="@dimen/_12sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp">
+
+                    <TextView
+                        android:id="@+id/tv_biller_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/btn_bg"
+                        android:fontFamily="@font/open_sans_medium"
+                        android:gravity="center"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:text="@string/aeps_settlement"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:layout_editor_absoluteY="122dp"
+                        tools:text="@string/aeps_settlement" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.core.widget.NestedScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_20sdp"
+                                android:orientation="vertical">
+                                <!--<androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/recycleViewContact"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                    tools:listitem="@layout/report_contact_item_layout" />
+
+
+-->
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_regular_400"
+                                    android:text="Available Settlement Limit"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12ssp" />
+
+                                <TextView
+                                    android:id="@+id/tv_amt"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:drawableEnd="@drawable/earning_money"
+                                    android:fontFamily="@font/montserrat_regular_400"
+                                    android:text="₹null"
+                                    android:textColor="@color/logo_color"
+                                    android:textSize="@dimen/_14ssp"
+
+                                    />
+
+
+                            </LinearLayout>
+
+                        </androidx.core.widget.NestedScrollView>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_settlewallet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="9dp"
+                android:elevation="8dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView2">
+                <!--android:background="@color/title_header2"-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="10dp"
+                        android:text="Settle to wallet"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/arrowImageViewSettlement"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/arrow_drop_down"
+
+                        app:layout_constraintEnd_toEndOf="@+id/tv_title"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!--android:background="@color/title_header2"-->
+                    <LinearLayout
+                        android:id="@+id/ll_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_title">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                            android:fontFamily="@font/montserrat_medium_500"
+                            android:text="@string/amount"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size" />
+
+                        <EditText
+                            android:id="@+id/et_amt_wallet"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edit_text_height"
+                            android:layout_marginTop="@dimen/edit_text_margin_top"
+                            android:background="@drawable/field_bg"
+                            android:drawableStart="@drawable/sub_id_icon"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:hint="@string/amount"
+                            android:inputType="numberDecimal"
+                            android:longClickable="false"
+                            android:maxLength="10"
+                            android:padding="@dimen/_5sdp"
+                            android:text="@={viewModel.amtMoveToWallet}"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="@dimen/edit_text_size"
+                            app:requestFocus="@{viewModel.amtMoveToWalletErrorVisible}" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_regular_400"
+                            android:text="@{viewModel.amtMoveToWalletError}"
+                            android:textColor="@color/pink2"
+                            android:textSize="@dimen/_9ssp"
+                            app:hideErrorTextView="@{viewModel.amtMoveToWalletErrorVisible}" />
+
+                        <TextView
+                            android:id="@+id/tv_settle_to_wallet_submit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_margin="@dimen/_10sdp"
+                            android:background="@drawable/btn_bg"
+                            android:fontFamily="@font/open_sans_medium"
+                            android:gravity="center"
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:text="@string/submit"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+
+                            app:layout_constraintStart_toStartOf="parent"
+                            tools:layout_editor_absoluteY="122dp"
+                            tools:text="@string/submit" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_payabhi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="9dp"
+                android:elevation="8dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card_settlewallet">
+                <!--android:background="@color/title_header2"-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_title_payabhi"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/open_sans_bold"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="10dp"
+                        android:text="@string/settle_to_payabhi"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/arrowImageViewpayabhi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/arrow_drop_down"
+
+                        app:layout_constraintEnd_toEndOf="@+id/tv_title_payabhi"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_container_payabhi"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_title_payabhi">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                            android:fontFamily="@font/montserrat_medium_500"
+                            android:text="@string/amount"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size" />
+
+                        <EditText
+                            android:id="@+id/et_amt_payabhi"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edit_text_height"
+                            android:layout_marginTop="@dimen/edit_text_margin_top"
+                            android:background="@drawable/field_bg"
+                            android:drawableStart="@drawable/sub_id_icon"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:hint="@string/amount"
+                            android:inputType="numberDecimal"
+                            android:longClickable="false"
+                            android:maxLength="10"
+                            android:padding="@dimen/_5sdp"
+                            android:text="@={viewModel.amtMoveToPayabhi}"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="@dimen/edit_text_size"
+                            app:requestFocus="@{viewModel.amtMoveToPayabhiErrorVisible}" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_regular_400"
+                            android:text="@{viewModel.amtMoveToPayabhiError}"
+                            android:textColor="@color/pink2"
+                            android:textSize="@dimen/_9ssp"
+                            app:hideErrorTextView="@{viewModel.amtMoveToPayabhiErrorVisible}" />
+
+                        <TextView
+                            android:id="@+id/tv_settle_to_payabhi_submit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_margin="@dimen/_10sdp"
+                            android:background="@drawable/btn_bg"
+                            android:fontFamily="@font/open_sans_medium"
+                            android:gravity="center"
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:text="@string/submit"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+
+                            app:layout_constraintStart_toStartOf="parent"
+                            tools:layout_editor_absoluteY="122dp"
+                            tools:text="@string/submit" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--<ScrollView
+            android:id="@+id/rootView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+
+        </ScrollView>-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

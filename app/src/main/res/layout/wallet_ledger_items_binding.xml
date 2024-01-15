@@ -1,0 +1,26 @@
+<!-- wallet_ledger_item.xml -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="walletLedgerData"
+            type="com.big9.app.data.model.allReport.WalletLedgerData" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Add your UI components here to display WalletLedgerData properties -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{walletLedgerData.amount}" />
+
+        <!-- Add other TextViews, ImageViews, etc. for other properties -->
+    </LinearLayout>
+</layout>

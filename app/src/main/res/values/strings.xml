@@ -1,0 +1,292 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Big9</string>
+
+    <string name="something_went_wrong_please_try_again_later">Something went wrong. Please try again later.</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="recharge_bill_payment"><![CDATA[Recharge & Bill Payment]]></string>
+    <string name="ok">Ok</string>
+    <string name="title_activity_network">NetworkActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="verifyRMN">Verify RMN</string>
+    <string name="enter_mobile_no">Enter mobile no.</string>
+    <string name="mobile_no">Mobile No<font color='#FF0000'>*</font></string>
+    <string name="mobile_no_hint">Mobile No</string>
+    <string name="unlock_using_pin">Unlock Using PIN</string>
+    <string name="verify_otp">Verify OTP</string>
+    <string name="you_ll_receive_a_6_digit_otp_to_verify_next">You\'ll receive a 6 digit code \nto verify next</string>
+    <string name="don_t_receive_code">Don\'t receive code</string>
+    <string name="resend_otp">Resend OTP in <font color='#72110A'>%dS</font></string>
+    <string name="resend_otp_title">Resend OTP</string>
+    <string name="verify">Verify</string>
+    <string name="name">Name<font color='#FF0000'>*</font></string>
+    <string name="basic_information">Basic Information</string>
+    <string name="enter_name">Enter name</string>
+    <string name="mobile_no_reg">Mobile No<font color='#FF0000'>*</font></string>
+    <string name="enter_mobile_no_reg">Enter Mobile No</string>
+    <string name="alternate_mobile_no">Alternate Mobile No<font color='#FF0000'>*</font></string>
+    <string name="enter_alternate_mobile_no">Enter Alternate Mobile No</string>
+    <string name="email_id">Email ID<font color='#FF0000'>*</font></string>
+
+    <string name="enter_email_id">Enter Email Id</string>
+    <string name="address">Address<font color='#FF0000'>*</font></string>
+    <string name="enter_address">Enter address</string>
+    <string name="pin_code">Pin Code<font color='#FF0000'>*</font></string>
+    <string name="enter_pin_code">Enter Pin Code</string>
+    <string name="date_of_birth">Date of Birth<font color='#FF0000'>*</font></string>
+    <string name="state">State<font color='#FF0000'>*</font></string>
+    <string name="select_state">Select State</string>
+    <string name="city_district">City/District<font color='#FF0000'>*</font></string>
+    <string name="city_district_hint">City/District</string>
+    <string name="area">Area<font color='#FF0000'>*</font></string>
+    <string name="gender">Gender<font color='#FF0000'>*</font></string>
+    <string name="gender_hint">Gender</string>
+    <string name="aadhar_no">Aadhar No<font color='#FF0000'>*</font></string>
+    <string name="enter_aadhar_no">Enter Aadhar No</string>
+    <string name="aadhar_no_hint">Aadhar No</string>
+    <string name="pan_card_no">PAN Card No<font color='#FF0000'>*</font></string>
+    <string name="pan_card">PAN Card<font color='#FF0000'>*</font></string>
+    <string name="enter_pan_card_no">Enter PAN Card No</string>
+    <string name="select_date">Select Date</string>
+    <string name="choose_file">Choose file</string>
+    <string name="owner_pan_card">Owner PAN Card<font color='#FF0000'>*</font></string>
+    <string name="owner_aadhaar_card_front_side">Owner Aadhaar Card (Front Side)<font color='#FF0000'>*</font></string>
+    <string name="owner_aadhaar_card_back_side">Owner Aadhaar Card (Back Side)<font color='#FF0000'>*</font></string>
+    <string name="no_file_chosen">No file chosen</string>
+    <string name="search">Search</string>
+    <string name="city_district_msg">City/District</string>
+    <string name="state_hint">State</string>
+    <string name="kyc_details">KYC DETAILS</string>
+    <string name="bank_details">BANK DETAILS</string>
+    <string name="doc_upload">DOC UPLOAD</string>
+    <string name="partner_aadhaar_card_back_side">Partner Aadhaar Card (Back side)</string>
+    <string name="gst_certificate_pdf_only">GST Certificate (PDF only)</string>
+    <string name="certificate_of_incorporation_pdf_only">Certificate of Incorporation (PDF only)</string>
+    <string name="board_resolution_pdf_only">Board Resolution(PDF Only)</string>
+    <string name="trade_license_pdf_only">Trade License(PDF Only)</string>
+    <string name="user_selfi">User Selfi<font color='#FF0000'>*</font></string>
+    <string name="selfi_with_company_person">Selfi with Company Person<font color='#FF0000'>*</font></string>
+    <string name="video_kyc">Video KYC<font color='#FF0000'>*</font></string>
+    <string name="save_amp_continue"><![CDATA[Save & Continue]]></string>
+    <string name="partner_name">Partner Name</string>
+    <string name="business_name">Business Name<font color='#FF0000'>*</font></string>
+    <string name="business_name_title">Business Name</string>
+    <string name="business_address">Business Address<font color='#FF0000'>*</font></string>
+    <string name="business_address_hint">Business Address</string>
+    <string name="pan_card_no_company">Pan Card No.(Company)</string>
+    <string name="pan_card_no_partner_if_any">Pan Card No.(Partner, If any)</string>
+    <string name="aadhar_no_partner_if_have">Aadhar No(Partner, If have)</string>
+    <string name="gstin_no">GSTIN No.</string>
+    <string name="business_type">Business Type<font color='#FF0000'>*</font></string>
+    <string name="business_category">Business Category<font color='#FF0000'>*</font></string>
+    <string name="beneficiary_name">Beneficiary Name<font color='#FF0000'>*</font></string>
+    <string name="account_number">Account Number<font color='#FF0000'>*</font></string>
+    <string name="confirm_account_number">Confirm Account Number<font color='#FF0000'>*</font></string>
+    <string name="bank_name">Bank Name<font color='#FF0000'>*</font></string>
+    <string name="ifsc_code">IFSC Code<font color='#FF0000'>*</font></string>
+    <string name="employee_code_id">Employee Code/ID<font color='#FF0000'>*</font></string>
+    <string name="cancelled_cheque_jpg_only">Cancelled Cheque(JPG ONLY)<font color='#FF0000'>*</font></string>
+    <string name="beneficiary_name_hint">Beneficiary Name</string>
+    <string name="account_number_hint">Account Number</string>
+    <string name="confirm_account_number_hint">Confirm Account Number</string>
+    <string name="ifsc_code_hint">IFSC Code</string>
+    <string name="employee_code_id_hint">Employee Code/ID</string>
+    <string name="choose_an_action">Choose an action</string>
+    <string name="choose_operator">Choose operator</string>
+    <string name="capture_image">Capture Image</string>
+    <string name="please_wait">Please wait...</string>
+    <string name="mobile_recharge">Mobile Recharge</string>
+    <string name="dth_recharge">DTH Recharge</string>
+    <string name="dth_recharge_slag">dth</string>
+    <string name="bill_pay">bill_pay</string>
+    <string name="broadband_slag">broadband</string>
+    <string name="imps_slag">imps</string>
+    <string name="select_operator">Select Operator</string>
+    <string name="prepaid">Prepaid</string>
+    <string name="mobile_slag">mobile</string>
+    <string name="browse_plans"> BROWSE PLANS </string>
+    <string name="proceed">PROCEED</string>
+    <string name="select_a_recharge_plan">Select a recharge plan</string>
+    <string name="subscriber_id">Subscriber id</string>
+    <string name="customer_info">Customer info</string>
+    <string name="enter_amount">Enter amount</string>
+    <string name="balance">Balance</string>
+    <string name="balance_slag">balance</string>
+    <string name="thank_you_for_using_our_app">Thank you for using our app!</string>
+    <string name="electric">Electricity</string>
+    <string name="choose_state">Choose state</string>
+    <string name="fetch_amount">Fetch amount</string>
+    <string name="payment">Payment</string>
+    <string name="payment_slag">payments</string>
+    <string name="transactions">transactions</string>
+    <string name="transactions_slag">transactions</string>
+    <string name="dmt">DMT</string>
+    <string name="dmt_slag">dmt</string>
+    <string name="load_Requests">Load Requests</string>
+    <string name="load_Requests_slag">load_request</string>
+    <string name="wallet_ledger">Wallet Ledger</string>
+    <string name="wallet_ledger_slag">wallet_ledger</string>
+    <string name="cashout_ledger">cashout Ledger</string>
+    <string name="aeps">AEPS</string>
+    <string name="aeps_slag">aeps</string>
+    <string name="micro_atm">Micro ATM</string>
+    <string name="micro_atm_slag">micro_atm</string>
+    <string name="commissions">Commissions</string>
+    <string name="commissions_slag">commissions</string>
+    <string name="bank_settle">Bank Settle</string>
+    <string name="bank_settle_slag">bank_settle</string>
+    <string name="wallet_settle">Wallet Settle</string>
+    <string name="wallet_settle_slag">wallet_settle</string>
+    <string name="complaints">Complaints</string>
+    <string name="complaints_slag">complaints_slag</string>
+    <string name="flight">Flight</string>
+    <string name="flight_slag">flight</string>
+    <string name="train">Train</string>
+    <string name="bus">Bus</string>
+    <string name="success">Success</string>
+    <string name="hotel">Hotel</string>
+    <string name="scan"><![CDATA[Scan & Pay]]></string>
+    <string name="myaccount">My Account</string>
+    <string name="myaccount_slag">my_account</string>
+    <string name="support">Support</string>
+    <string name="support_slag">support</string>
+    <string name="likeus">Like Us</string>
+    <string name="likeus_slag">like_us</string>
+    <string name="usage_terms">Usage Terms</string>
+    <string name="usage_terms_slag">usage_terms</string>
+    <string name="password">Password</string>
+    <string name="password_slag">password</string>
+    <string name="certificate">Certificate</string>
+    <string name="certificate_slag">certificate</string>
+    <string name="logout">Log out</string>
+    <string name="move_to_bank">Move to Bank</string>
+    <string name="move_to_bank_slag">move_to_bank</string>
+    <string name="move_to_wallet">Move to wallet</string>
+    <string name="move_to_wallet_slag">move_to_wallet</string>
+    <string name="ePotly">ePotly</string>
+    <string name="ePotly_slag">eportly_inb</string>
+    <string name="payment_request">Payment request</string>
+    <string name="payment_request_slag">payments</string>
+    <string name="banking">Banking</string>
+    <string name="insurance">Insurance</string>
+    <string name="insurance_slag">insurance</string>
+    <string name="postpaid">"Postpaid "</string>
+    <string name="cash_withdraw">Cash Withdraw</string>
+    <string name="cash_withdraw_slag">withdraw</string>
+    <string name="mini_statement">Mini Statement</string>
+    <string name="mini_statement_slag">statement</string>
+    <string name="aadhar_pay">Aadhaar pay</string>
+    <string name="aadhar_pay_slag">aadhar_pay</string>
+    <string name="financial">Financial</string>
+    <string name="credit_card">Credit Card</string>
+    <string name="credit_card_slag">card_payment</string>
+    <string name="cash_collection">Cash Collection</string>
+    <string name="cash_collection_slag">cash_col</string>
+    <string name="matm">MATM</string>
+    <string name="matm_slag">micro_atm</string>
+    <string name="money_transfer">Money transfer</string>
+    <string name="money_transfer_slag">transactions</string>
+    <string name="utility">Utility</string>
+    <string name="view_more">View More</string>
+    <string name="fast_tag">Fast Tag</string>
+    <string name="fast_tag_slag">fastag_recharge</string>
+    <string name="gas">Gas</string>
+    <string name="contact_details">Contact Details</string>
+    <string name="contect_center">Contect Center</string>
+    <string name="terms_amp_conditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="terms_condition">\u25A1 Please read the following terms and conditions carefully before registering on, accessing, browsing, downloading or using the Big9 website located at http://big9.net, and all associated sites linked to http://big9.net, or the Big9 mobile application or any similar platform (hereinafter collectively, the Big9 Platform run by BDAS FINTECH PVT LTD, having its corporate office at EB-47, 3108, Rajdanga main road, Kasba, Kolkata-700107 (hereinafter collectively, Big9 or BIG9) on any device and/or before availing any services offered by Big9 on the Big9 Platform which may include services such as recharge or bill payment, digital products, semi-closed wallet service and marketplace service or any other service that may be offered by Big9 on the Big9 Platform (hereinafter individually, and collectively, the Big9 Services).\n\n \u25A1 For the avoidance of doubt, it is clarified that these terms and conditions shall apply to all Big9 Services, whether offered by Big9 or its affiliates.</string>
+    <string name="change_password">Change Password</string>
+    <string name="submit">SUBMIT</string>
+    <string name="reset_tpin">Reset TPIN</string>
+    <string name="old_login_pin">Old Login PIN</string>
+    <string name="new_login_pin">New Login PIN</string>
+    <string name="confirm_login_pin">Confirm Login PIN</string>
+    <string name="pancard_no_without_star">Pan Card Number</string>
+    <string name="i_confirm">I CONFIRM</string>
+    <string name="i_hereby_authorize_the_company_to_use_my_kyc_data_for_onboarding_on_aeps"> I hereby authorize the company to use my KYC data for onboarding on AEPS</string>
+    <string name="selected_bank">Selected Bank</string>
+    <string name="particulars">Particulars<font color='#FF0000'>*</font></string>
+    <string name="particulars_hint">Particulars</string>
+    <string name="enter_deposite_date">Enter Deposite Date<font color='#FF0000'>*</font></string>
+    <string name="enter_deposite_date_hint">Enter Deposite Date</string>
+    <string name="payment_amount">Payment Amount<font color='#FF0000'>*</font></string>
+    <string name="payment_amount_hint">Payment Amount</string>
+    <string name="bank_transaction_id">Bank Transaction ID</string>
+    <string name="upload_slip">Upload Slip</string>
+    <string name="amount">Amount</string>
+    <string name="settle_to_payabhi">Settle to payabhi</string>
+    <string name="aeps_settlement">Aeps Settlement</string>
+    <string name="move_to_bank_nclick_on_the_approved_account_to_proceed">Move to Bank\nClick on the approved account to proceed</string>
+    <string name="settle_imps">Settle IMPS</string>
+    <string name="settlement_amount">Settlement Amount</string>
+    <string name="settle_neft">Settle NEFT</string>
+    <string name="sender_details">Sender Details</string>
+    <string name="choosing_the_right_path_neft_or_imps_selecting_your_ideal_transaction_type">Choosing the Right Path: NEFT or IMPS - Selecting Your Ideal Transaction Type</string>
+    <string name="enter_amount_rs">Enter amount(Rs.)</string>
+    <string name="_16_digit_card_number">16 digit card number</string>
+    <string name="card_holder_name">Card Holder Name</string>
+    <string name="remarks">Remarks</string>
+    <string name="select_bank">Select Bank</string>
+    <string name="bank_list">Bank List</string>
+    <string name="beneficiary_list">Beneficiary List</string>
+    <string name="add_beneficiary">Add Beneficiary</string>
+    <string name="provided_amount">Amount</string>
+    <string name="provide_aadhar_number">Provide Aadhar Number</string>
+    <string name="provided_customer_number">Customer Number</string>
+    <string name="cash_withdrawal">Cash withdrawal</string>
+    <string name="most_used_bank">Most uses bank</string>
+    <string name="aeps_1">AEPS 1</string>
+    <string name="search_by_bank_name">Search by bank name</string>
+    <string name="no_service_found">No Service found</string>
+    <string name="fastag_recharge">FASTag Recharge</string>
+    <string name="vehicle_registration_number">Vehicle Registration Number</string>
+    <string name="fastag_banks_list">FASTag Banks List</string>
+    <string name="fastag_operator_list">FASTag operator list</string>
+    <string name="m_atm_transaction">M-ATM TRANSACTION</string>
+    <string name="vm30">VM30</string>
+    <string name="select_device_model">Select Device Model</string>
+    <string name="balance_enquery">Balance Enquery</string>
+    <string name="cash_withdrawal_matm">Cash Withdrawal</string>
+    <string name="switch_account">Switch Account</string>
+    <string name="add_bank_message"><![CDATA[ \u25CF DISCLAIMER-The company doesnt hold any liability for incorrect transfers, Please verify and add the account correctly.\n\n\u25CF Account verification charges shall be applicable for the account verification. By clicking on PROCEED you agree to the payment and also indemnify the Company against any wrong settlements due to invalid information of account shared in this registration process]]></string>
+    <string name="statistics">Statistics</string>
+    <string name="balence">Balence</string>
+    <string name="aadhar_number">Aadhar Number</string>
+    <string name="balance_enquiry">Balance enquiry</string>
+    <string name="transaction_slip">Transaction Slip</string>
+    <string name="rrn"><font color='#FF000000'>RRN</font></string>
+    <string name="translation_id"><font color='#FF000000'>Translation Id</font></string>
+    <string name="mobile_recharged">Mobile Recharged</string>
+    <string name="dth_recharged">Dth Recharged</string>
+    <string name="broadband_recharged">Broadband Recharged</string>
+    <string name="payment_details">Payment details</string>
+    <string name="total">Total</string>
+    <string name="transaction_id">Transaction id</string>
+    <string name="payment_receipt">Payment Receipt</string>
+    <string name="balance_enquiry_tag">Balance Enquiry</string>
+    <string name="details">Details</string>
+    <string name="cash_withdrawal_tag">Cash Withdrawal</string>
+    <string name="aadhar_pay_tag">Aadhar Pay</string>
+    <string name="mini_statement_tag">Mini Statement</string>
+    <string name="recharge_amp_bill_pay"><![CDATA[Recharge & Bill pay]]></string>
+    <string name="education_fees">Education Fees</string>
+    <string name="broadband">Broadband</string>
+    <string name="gas_booking">Book a Cylinder</string>
+    <string name="loan_payment">Loan Payment</string>
+    <string name="account_number_tag">Account Number</string>
+    <string name="enter_loan_amount">Enter Loan Amount</string>
+    <string name="select_bank_from_list">Select Bank From List</string>
+    <string name="pay_broadband_landline_bill">Pay Broadband / Landline Bill</string>
+    <string name="institute_type">Institute Type</string>
+    <string name="current_amount">Current amount</string>
+    <string name="current_amount_a">Current amount</string>
+    <string name="msg_token_fmt" />
+    <string name="channel_id" >big9</string>
+    <string name="banks_list">Bank List</string>
+    <string name="add_retailers">Add Retailers</string>
+    <string name="view_channel">View Channel</string>
+</resources>

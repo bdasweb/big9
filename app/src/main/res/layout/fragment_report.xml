@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+
+        <variable
+            name="viewModel"
+            type="com.big9.app.data.viewMovel.MyViewModel" />
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray"
+        tools:context=".ui.activity.DashBoardActivity">
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/baseline_arrow_back_24" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingVertical="@dimen/_8sdp"
+                android:scaleType="fitStart"
+                android:src="@drawable/epay_logo" />
+
+        </LinearLayout>
+
+       <!-- <androidx.core.widget.NestedScrollView
+            android:id="@+id/nsvTop"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">-->
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/nsvTop"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+                <!--https://lottiefiles.com/animations/reporting-kbvmxZNIhR-->
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="@dimen/_12sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_10sdp">
+
+                        <TextView
+                            android:id="@+id/tv_biller_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@drawable/btn_bg"
+                            android:fontFamily="@font/open_sans_medium"
+                            android:gravity="center"
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:text="@{viewModel.reportType+` reports`}"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintEnd_toEndOf="parent"
+
+                            app:layout_constraintStart_toStartOf="parent"
+                            tools:layout_editor_absoluteY="122dp"
+                            tools:text="Bank Settlement History" />
+                        <!--                        <com.airbnb.lottie.LottieAnimationView-->
+                        <!--                            android:id="@+id/animationView"-->
+                        <!--                            android:layout_width="@dimen/_80sdp"-->
+                        <!--                            android:layout_height="@dimen/_80sdp"-->
+                        <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+                        <!--                            app:layout_constraintStart_toStartOf="parent"-->
+                        <!--                            android:layout_marginBottom="@dimen/_15sdp"-->
+                        <!--                            app:lottie_autoPlay="true"-->
+                        <!--                            android:scaleType="fitXY"-->
+                        <!--                            android:layout_gravity="center_horizontal"-->
+                        <!--                            app:lottie_loop="true"-->
+                        <!--                            app:lottie_rawRes="@raw/report_2"-->
+                        <!--                            tools:ignore="MissingConstraints" />-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_start_date"
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:layout_marginVertical="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_weight=".1"
+                                android:background="@drawable/field_image_bg"
+                                android:drawableEnd="@drawable/baseline_calendar_month_24"
+                                android:fontFamily="@font/montserrat_regular_400"
+                                android:gravity="center"
+                                android:text="@{viewModel.startDate}"
+                                android:textColor="@color/black"
+                                tools:text="10-10-2023" />
+
+                            <View
+                                android:layout_width="@dimen/_5sdp"
+                                android:layout_height="@dimen/_10sdp" />
+
+                            <TextView
+                                android:id="@+id/tv_end_date"
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:layout_marginVertical="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_weight=".1"
+                                android:background="@drawable/field_image_bg"
+                                android:drawableEnd="@drawable/baseline_calendar_month_24"
+                                android:fontFamily="@font/montserrat_regular_400"
+                                android:gravity="center"
+                                android:text="@{viewModel.enddate}"
+                                android:textColor="@color/black"
+                                tools:text="10-10-2023" />
+
+                        </LinearLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/tv_confirm"
+                                android:layout_width="@dimen/_80sdp"
+                                android:layout_height="@dimen/_20sdp"
+                                android:layout_gravity="end"
+                                android:gravity="center"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:background="@drawable/btn_bg"
+                                android:paddingHorizontal="@dimen/_10sdp"
+                                android:paddingVertical="@dimen/_1sdp"
+                                android:text="Confirm"
+
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                android:id="@+id/tv_download"
+                                android:layout_width="@dimen/_80sdp"
+                                android:layout_height="@dimen/_20sdp"
+                                android:layout_gravity="end"
+                                android:gravity="center"
+
+                                android:layout_marginHorizontal="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:background="@drawable/btn_bg"
+                                android:paddingHorizontal="@dimen/_10sdp"
+                                android:paddingVertical="@dimen/_1sdp"
+                                android:text="Download"
+                                android:layout_toLeftOf="@+id/tv_confirm"
+                                android:textColor="@color/white" />
+                        </RelativeLayout>
+
+
+
+
+                        <LinearLayout
+                            android:id="@+id/ll_loader"
+                            android:layout_width="@dimen/_80sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/btn_bg"
+                            android:orientation="vertical"
+
+                            >
+                            <com.google.android.material.progressindicator.CircularProgressIndicator
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:indeterminate="true"
+                                app:indicatorColor="@color/white"
+                                app:indicatorSize="@dimen/_15sdp"
+                                android:padding="@dimen/_2sdp"
+                                android:layout_gravity="center"
+                                app:trackColor="@color/gray"
+                                app:trackThickness="@dimen/_2sdp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/tv_no_data_found"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No Data found"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView2"
+                    android:textColor="@color/black2"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_20sdp"/>
+                <!--<androidx.core.widget.NestedScrollView
+                    android:id="@+id/nsv"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView2"
+                    tools:layout_editor_absoluteX="0dp">-->
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView2">
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recycleViewReport"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+
+                            tools:listitem="@layout/report_layout_item" />
+                    </LinearLayout>
+
+                    <!-- Add a ProgressBar for bottom loader -->
+
+
+
+                <!--</androidx.core.widget.NestedScrollView>-->
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+       <!-- </androidx.core.widget.NestedScrollView>-->
+        <LinearLayout
+            android:id="@+id/loaderBottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_20sdp"
+            android:background="@color/g5"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Loading..."
+                android:gravity="center"
+                android:fontFamily="@font/montserrat_medium_500"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/white"/>
+            <!-- <com.google.android.material.progressindicator.CircularProgressIndicator
+                 android:id="@+id/bottomLoader"
+                 android:layout_width="@dimen/_20sdp"
+                 android:layout_height="match_parent"
+                 android:indeterminate="true"
+
+                 app:indicatorColor="@color/logo_color"
+                 app:indicatorSize="@dimen/_20sdp"
+                 android:layout_gravity="center"
+                 app:trackColor="@color/logo_second_color"
+                 app:trackThickness="@dimen/_2sdp"
+                 />-->
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

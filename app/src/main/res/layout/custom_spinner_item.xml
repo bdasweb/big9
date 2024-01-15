@@ -1,0 +1,12 @@
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/edit_text_height"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="@dimen/_3sdp"
+    android:textSize="@dimen/edit_text_size"
+    android:textColor="@color/black"
+    android:hint="@string/select_state"
+    tools:text="Select"
+    android:gravity="center_vertical"
+    android:layout_marginTop="@dimen/edit_text_margin_top"
+    android:background="@drawable/spinner_field_bg" />

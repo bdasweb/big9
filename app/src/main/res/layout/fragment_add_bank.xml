@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+
+        <variable
+            name="viewModel"
+            type="com.big9.app.data.viewMovel.MyViewModel" />
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray"
+        tools:context=".ui.activity.DashBoardActivity">
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/baseline_arrow_back_24" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingVertical="@dimen/_8sdp"
+                android:scaleType="fitStart"
+                android:src="@drawable/epay_logo" />
+
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_marginTop="@dimen/_10sdp"
+                android:id="@+id/cRootView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:shadowRadius="@dimen/_8sdp"
+                tools:context=".ui.activity.DashBoardActivity">
+
+                <androidx.cardview.widget.CardView
+
+                    android:id="@+id/cardView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardCornerRadius="@dimen/_12sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_10sdp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_bold"
+                            android:gravity="center"
+                            android:text="Add Bank Details"
+                            android:textColor="@color/logo_color"
+                            android:textSize="@dimen/_14ssp" />
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:id="@+id/ll_prePaid"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                tools:ignore="UseCompoundDrawables">
+
+                                <ImageView
+                                    android:id="@+id/yesIv"
+                                    android:layout_width="@dimen/_24sdp"
+                                    android:layout_height="@dimen/_24sdp"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:src="@{viewModel.prepaitIsActive?@drawable/ic_product_active:@drawable/ic_product_inactive}"
+                                    tools:ignore="ContentDescription" />
+
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_medium_500"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_8sdp"
+                                    android:text="@string/prepaid"
+                                    android:textColor="@{viewModel.prepaitIsActive?@color/logo_color:@color/logo_second_color}"
+                                    android:textSize="@dimen/text_size"
+                                    tools:ignore="RtlSymmetry" />
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="@dimen/_40sdp"
+                                android:layout_height="@dimen/_1sdp" />
+
+                            <LinearLayout
+                                android:id="@+id/ll_postPaid"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                tools:ignore="UseCompoundDrawables">
+
+                                <ImageView
+                                    android:id="@+id/img_postPaid"
+                                    android:layout_width="@dimen/_24sdp"
+                                    android:layout_height="@dimen/_24sdp"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:src="@{viewModel.postpaitIsActive?@drawable/ic_product_active:@drawable/ic_product_inactive}"
+                                    tools:ignore="ContentDescription" />
+                                <!--prepaid and postpaid difference-->
+                                <TextView
+                                    android:id="@+id/tv_yes"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_medium_500"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_8sdp"
+                                    android:text="Postpaid"
+                                    android:textColor="@{viewModel.postpaitIsActive?@color/logo_color:@color/logo_second_color}"
+                                    android:textSize="@dimen/text_size"
+                                    tools:ignore="RtlSymmetry" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!--16 digit card number-->
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                            android:fontFamily="@font/montserrat_medium_500"
+                            android:text="@string/select_bank"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size" />
+
+                        <TextView
+                            android:id="@+id/et_beneficiary_bank_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edit_text_height"
+                            android:layout_marginTop="@dimen/edit_text_margin_top"
+                            android:background="@drawable/field_bg"
+                            android:drawableTint="@color/logo_color"
+                            android:hint="@string/select_bank"
+                            android:text="@{viewModel.beneficiary_bank_name}"
+
+                            android:longClickable="false"
+                            android:maxLength="16"
+                            android:padding="@dimen/_5sdp"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:drawableStart="@drawable/bank_name_ioc"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="@dimen/edit_text_size" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_regular_400"
+                            android:textColor="@color/pink2"
+                            android:textSize="@dimen/_9ssp"
+                            android:text="@{viewModel.beneficiary_bank_name_Error}"
+                            app:hideErrorTextView="@{viewModel.beneficiary_bank_name_ErrorVisible}"
+                            />
+
+                        <!--end 16 digit card number-->
+
+
+                        <!--START CARD HOLDER NAME-->
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                            android:fontFamily="@font/montserrat_medium_500"
+                            android:text="@string/ifsc_code_hint"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size" />
+
+                        <TextView
+                            android:id="@+id/et_card_holder_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edit_text_height"
+                            android:layout_marginTop="@dimen/edit_text_margin_top"
+                            android:background="@drawable/field_bg"
+                            android:hint="@string/ifsc_code_hint"
+                            android:drawableTint="@color/logo_color"
+                            android:text="@{viewModel.beneficiary_ifsc}"
+                            android:inputType="textCapWords"
+                            android:longClickable="false"
+                            android:maxLength="16"
+                            android:padding="@dimen/_5sdp"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:drawableStart="@drawable/bank_imps"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="@dimen/edit_text_size" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_regular_400"
+                            android:textColor="@color/pink2"
+                            android:textSize="@dimen/_9ssp"
+                            android:text="@{viewModel.beneficiary_ifsc_Error}"
+                            app:hideErrorTextView="@{viewModel.beneficiary_ifsc_ErrorVisible}"
+                            />
+
+                        <!--END CARD HOLDER NAME-->
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                            android:fontFamily="@font/montserrat_medium_500"
+                            android:text="@string/account_number_hint"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size" />
+
+                        <EditText
+                            android:id="@+id/et_mob"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edit_text_height"
+                            android:layout_marginTop="@dimen/edit_text_margin_top"
+                            android:background="@drawable/field_bg"
+                            android:hint="@string/account_number_hint"
+                            android:text="@={viewModel.beneficiary_acc}"
+                            app:requestFocus="@{viewModel.beneficiary_accErrorVisible}"
+                            app:addTextChangeListener="@{viewModel}"
+                            android:inputType="number"
+                            android:longClickable="false"
+                            android:maxLength="10"
+                            android:drawableTint="@color/logo_color"
+                            android:padding="@dimen/_5sdp"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:drawableStart="@drawable/bank_name_ioc"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="@dimen/edit_text_size" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_regular_400"
+                            android:textColor="@color/pink2"
+                            android:textSize="@dimen/_9ssp"
+                            android:text="@{viewModel.beneficiary_accError}"
+                            app:hideErrorTextView="@{viewModel.beneficiary_accErrorVisible}"
+                            />
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                            android:fontFamily="@font/montserrat_medium_500"
+                            android:text="@string/beneficiary_name_hint"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edit_text_height"
+                            android:background="@drawable/field_bg"
+                            android:layout_marginTop="@dimen/edit_text_margin_top">
+                            <EditText
+                                android:id="@+id/et_amt"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentStart="true"
+                                android:hint="@string/beneficiary_name_hint"
+                                android:imeOptions="actionDone"
+                                app:drawableTint="@color/logo_color"
+                                android:text="@={viewModel.beneficiary_name}"
+                                android:inputType="textCapWords"
+                                android:background="@null"
+                                android:longClickable="false"
+                                android:maxLength="10"
+                                android:padding="@dimen/_5sdp"
+                                android:drawablePadding="@dimen/_5sdp"
+                                android:drawableStart="@drawable/baseline_account_box_24"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:textSize="@dimen/edit_text_size"
+
+                                />
+
+                        </RelativeLayout>
+
+
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_regular_400"
+                            android:text="@{viewModel.beneficiary_nameError}"
+                            app:hideErrorTextView="@{viewModel.beneficiary_nameErrorVisible}"
+                            android:textColor="@color/pink2"
+                            android:textSize="@dimen/_9ssp"
+
+                            />
+                        <!--mobile End-->
+                        <ImageView
+                            android:id="@+id/img_check"
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/payslip"
+                            android:adjustViewBounds="true"
+                            android:scaleType="centerCrop"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_regular_400"
+                            android:text="Upload bank check"
+                            android:visibility="gone"
+                            app:hideErrorTextView="@{viewModel.bank_check_ErrorVisible}"
+                            android:textColor="@color/pink2"
+                            android:textSize="@dimen/_9ssp"
+
+                            />
+                        <TextView
+                            android:id="@+id/tv_upload_payslip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="@dimen/_2sdp"
+                            android:drawableEnd="@drawable/photo_camera_icon"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_9ssp"
+                            android:fontFamily="@font/open_sans_medium"
+                            android:text="Click Here Upload Account Proof/Declarattion"/>
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/tv_message"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="end"
+                    android:paddingVertical="@dimen/_5sdp"
+                    android:textSize="@dimen/_9ssp"
+                    android:textColor="@color/logo_second_color"
+                    android:text="@string/add_bank_message"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/cardView2"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+                <Button
+                    android:id="@+id/btn_submit"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="end"
+                    android:layout_marginVertical="@dimen/_5sdp"
+                    android:background="@drawable/btn_bg"
+                    android:padding="@dimen/_5sdp"
+                    android:text="@string/proceed"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/cardView2"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_message" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_marginTop="@dimen/_40sdp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="end"
+                    android:layout_marginVertical="@dimen/_5sdp"
+                    android:padding="@dimen/_5sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/cardView2"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_submit" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

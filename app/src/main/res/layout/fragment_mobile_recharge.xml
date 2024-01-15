@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+
+        <variable
+            name="viewModel"
+            type="com.big9.app.data.viewMovel.MyViewModel" />
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rootView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray"
+        tools:context=".ui.activity.DashBoardActivity">
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/baseline_arrow_back_24" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingVertical="@dimen/_8sdp"
+                android:scaleType="fitStart"
+                android:src="@drawable/epay_logo" />
+
+        </LinearLayout>
+
+       <!-- <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:shadowRadius="@dimen/_8sdp"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+            tools:context=".ui.activity.DashBoardActivity"
+            tools:layout_editor_absoluteX="13dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="@dimen/_12sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:gravity="center"
+                        android:text="@{viewModel.prepaitOrPostPaid+` Mobile Recharge`}"
+                        android:textColor="@color/logo_color"
+                        android:textSize="@dimen/_14ssp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:id="@+id/ll_prePaid"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            tools:ignore="UseCompoundDrawables">
+
+                            <ImageView
+                                android:id="@+id/yesIv"
+                                android:layout_width="@dimen/_24sdp"
+                                android:layout_height="@dimen/_24sdp"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:src="@{viewModel.prepaitIsActive?@drawable/ic_product_active:@drawable/ic_product_inactive}"
+                                tools:ignore="ContentDescription" />
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_medium_500"
+                                android:gravity="center"
+                                android:paddingStart="@dimen/_8sdp"
+                                android:text="@string/prepaid"
+                                android:textColor="@{viewModel.prepaitIsActive?@color/logo_color:@color/logo_second_color}"
+                                android:textSize="@dimen/text_size"
+                                tools:ignore="RtlSymmetry" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_1sdp" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_postPaid"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            tools:ignore="UseCompoundDrawables">
+
+                            <ImageView
+                                android:id="@+id/img_postPaid"
+                                android:layout_width="@dimen/_24sdp"
+                                android:layout_height="@dimen/_24sdp"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:src="@{viewModel.postpaitIsActive?@drawable/ic_product_active:@drawable/ic_product_inactive}"
+                                tools:ignore="ContentDescription" />
+                            <!--prepaid and postpaid difference-->
+                            <TextView
+                                android:id="@+id/tv_yes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_medium_500"
+                                android:gravity="center"
+                                android:paddingStart="@dimen/_8sdp"
+                                android:text="Postpaid"
+                                android:textColor="@{viewModel.postpaitIsActive?@color/logo_color:@color/logo_second_color}"
+                                android:textSize="@dimen/text_size"
+                                tools:ignore="RtlSymmetry" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                        android:fontFamily="@font/montserrat_medium_500"
+                        android:text="@string/mobile_no_reg"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size" />
+                    <!--android:maxLength="@{viewModel.maxMobileLength}"-->
+                    <EditText
+                        android:id="@+id/et_mob"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edit_text_height"
+                        android:layout_marginTop="@dimen/edit_text_margin_top"
+                        android:background="@drawable/field_bg"
+                        android:drawableStart="@drawable/baseline_phone_24"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:hint="@string/enter_mobile_no_reg"
+                        android:inputType="number"
+                        android:longClickable="false"
+
+                        android:padding="@dimen/_5sdp"
+                        android:text="@={viewModel.mobile}"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="@dimen/edit_text_size"
+                        app:requestFocus="@{viewModel.mobileErrorVisible}" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_regular_400"
+                        android:text="@{viewModel.mobileError}"
+                        android:textColor="@color/pink2"
+                        android:textSize="@dimen/_9ssp"
+                        app:hideErrorTextView="@{viewModel.mobileErrorVisible}" />
+                    <!--mobile End-->
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                        android:fontFamily="@font/montserrat_medium_500"
+                        android:text="@string/select_operator"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size" />
+
+                    <TextView
+                        android:id="@+id/tv_operator"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edit_text_height"
+                        android:layout_marginTop="@dimen/edit_text_margin_top"
+                        android:background="@drawable/field_bg"
+                        android:drawableStart="@drawable/operator_select"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:hint="Select operator"
+                        android:inputType="number"
+                        android:longClickable="false"
+
+                        android:padding="@dimen/_5sdp"
+                        android:text="@{viewModel.operator}"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="@dimen/edit_text_size"
+                        app:drawableTint="@color/logo_color" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_regular_400"
+                        android:text="@{viewModel.operatorError}"
+                        android:textColor="@color/pink2"
+                        android:textSize="@dimen/_9ssp"
+                        app:hideErrorTextView="@{viewModel.operatorErrorVisible}"
+
+                        />
+                    <!--mobile End-->
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                        android:fontFamily="@font/montserrat_medium_500"
+                        android:text="Enter amount"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="@dimen/edit_text_margin_top"
+                        android:background="@drawable/field_bg"
+
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/et_amt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:layout_toStartOf="@+id/btn_browse"
+                            android:background="@null"
+                            android:drawableStart="@drawable/indian_rupee_symbol"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:drawableTint="@color/logo_color"
+                            android:hint="Enter amount"
+                            android:inputType="numberDecimal"
+                            android:longClickable="false"
+                            android:text="@={viewModel.amt}"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="@dimen/edit_text_size"
+                            app:requestFocus="@{viewModel.amtErrorErrorVisible}" />
+
+                        <TextView
+                            android:id="@+id/btn_browse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="end"
+                            android:textColor="@color/white"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:background="@drawable/btn_bg"
+                            android:paddingHorizontal="@dimen/_5sdp"
+                            android:paddingVertical="@dimen/_2sdp"
+                            android:text="@string/browse_plans"
+                            android:visibility="gone" />
+                    </RelativeLayout>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_regular_400"
+                        android:text="@{viewModel.amtError}"
+                        android:textColor="@color/pink2"
+                        android:textSize="@dimen/_9ssp"
+                        app:hideErrorTextView="@{viewModel.amtErrorErrorVisible}"
+
+                        />
+                    <!--mobile End-->
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="end"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="@drawable/btn_bg"
+                android:padding="@dimen/_5sdp"
+                android:text="@string/proceed"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/cardView2"
+                app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+            <LinearLayout
+                android:id="@+id/ll_submit_loader"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/btn_height"
+                android:layout_alignParentEnd="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="end"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:background="@drawable/btn_bg"
+                android:orientation="vertical"
+                android:padding="@dimen/_5sdp"
+                android:text="@string/proceed"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/cardView2"
+                app:layout_constraintTop_toBottomOf="@+id/cardView2">
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:indeterminate="true"
+                    android:padding="@dimen/_2sdp"
+                    app:indicatorColor="@color/white"
+                    app:indicatorSize="@dimen/_15sdp"
+
+                    app:trackColor="@color/gray"
+                    app:trackThickness="@dimen/_2sdp" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+<!--        </androidx.core.widget.NestedScrollView>-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

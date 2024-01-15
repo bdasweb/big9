@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 7.4.1" type="baseline" client="gradle" dependencies="false" name="AGP (7.4.1)" variant="fatal" version="7.4.1">
+
+    <issue
+        id="NotSibling"
+        message="`@+id/textView25` is not a sibling in the same `ConstraintLayout`"
+        errorLine1="                        app:layout_constraintBottom_toBottomOf=&quot;@+id/textView25&quot;"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_move_wallet_to_wallet_recept_dialog.xml"
+            line="161"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="NullSafeMutableLiveData"
+        message="Expected non-nullable value"
+        errorLine1="                            stateresp.value=it.data.stateresp"
+        errorLine2="                                            ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/big9/app/ui/fragment/CreditCardPaymentFragment.kt"
+            line="113"
+            column="45"/>
+    </issue>
+
+    <issue
+        id="NullSafeMutableLiveData"
+        message="Expected non-nullable value"
+        errorLine1="            userProfileMobile.value = data.mobileNo"
+        errorLine2="                                      ~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/big9/app/ui/fragment/LoginPinfragment.kt"
+            line="532"
+            column="39"/>
+    </issue>
+
+    <issue
+        id="NullSafeMutableLiveData"
+        message="Expected non-nullable value"
+        errorLine1="            userProfileName.value = data.name"
+        errorLine2="                                    ~~~~~~~~~">
+        <location
+            file="src/main/java/com/big9/app/ui/fragment/LoginPinfragment.kt"
+            line="533"
+            column="37"/>
+    </issue>
+
+    <issue
+        id="NullSafeMutableLiveData"
+        message="Expected non-nullable value"
+        errorLine1="                        popup_message.value=it?.data?.Description"
+        errorLine2="                                            ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/big9/app/ui/fragment/MoveToBankFragment.kt"
+            line="114"
+            column="45"/>
+    </issue>
+
+    <issue
+        id="NullSafeMutableLiveData"
+        message="Expected non-nullable value"
+        errorLine1="                        popup_message?.value=it.data?.Description"
+        errorLine2="                                             ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/big9/app/ui/fragment/MoveToWalletFragment.kt"
+            line="297"
+            column="46"/>
+    </issue>
+
+</issues>

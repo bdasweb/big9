@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+
+        <variable
+            name="viewModel"
+            type="com.big9.app.data.viewMovel.MyViewModel" />
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rootView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray"
+        tools:context=".ui.activity.DashBoardActivity">
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/baseline_arrow_back_24" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingVertical="@dimen/_8sdp"
+                android:scaleType="fitStart"
+                android:src="@drawable/epay_logo" />
+
+        </LinearLayout>
+
+        <!-- <androidx.core.widget.NestedScrollView
+             android:layout_width="match_parent"
+             android:layout_height="0dp"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+ -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/croot1"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:shadowRadius="@dimen/_8sdp"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+            tools:context=".ui.activity.DashBoardActivity"
+            tools:layout_editor_absoluteX="13dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="@dimen/_12sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp">
+
+                   <ImageView
+                       android:layout_width="@dimen/_100sdp"
+                       android:layout_height="wrap_content"
+                       android:src="@drawable/epay_logo"
+                       android:layout_gravity="center_horizontal"
+                        android:adjustViewBounds="true"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                        android:fontFamily="@font/montserrat_medium_500"
+                        android:text="Mobile No"
+
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size" />
+
+                    <EditText
+                        android:id="@+id/et_institutetype"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edit_text_height"
+                        android:layout_marginTop="@dimen/edit_text_margin_top"
+                        android:background="@drawable/field_bg"
+                        android:drawableStart="@drawable/sub_id_icon"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:hint="@string/mobile_no_hint"
+                        android:inputType="number"
+                        android:longClickable="false"
+                        android:maxLength="10"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@={viewModel.ratailerMobile}"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="@dimen/edit_text_size"
+                        app:requestFocus="@{viewModel.ratailerMobileMobileErrorVisible}" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_regular_400"
+                        android:text="@{viewModel.ratailerMobileMobileError}"
+                        android:textColor="@color/pink2"
+                        android:textSize="@dimen/_9ssp"
+                        app:hideErrorTextView="@{viewModel.ratailerMobileMobileErrorVisible}" />
+                    <!--mobile End-->
+
+
+
+
+                    <!--mobile End-->
+
+
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_userDetails"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:elevation="@dimen/_12sdp"
+                android:visibility="gone"
+                app:cardCornerRadius="@dimen/_12sdp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView2">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_gradian"
+                    android:orientation="vertical"
+
+                    android:visibility="visible">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/logo_second_color"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="center_horizontal"
+                            android:fontFamily="@font/open_sans_medium"
+                            android:gravity="center_horizontal"
+                            android:padding="@dimen/_5sdp"
+                            android:text="Subscriber info"
+                            android:textColor="@color/white"
+
+                            android:textSize="@dimen/_10ssp" />
+
+                        <ImageView
+                            android:id="@+id/img_close"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:src="@android:drawable/ic_menu_close_clear_cancel"
+                            app:tint="@color/logo_color" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_10sdp"
+                            android:fontFamily="@font/montserrat_medium_500"
+                            android:text="@{viewModel.userName}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_16ssp"
+                            tools:text="Test User" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{`(`+viewModel.type+`)`}"
+                            android:textColor="@color/logo_second_color"
+                            tools:text="(active)" />
+                    </LinearLayout>
+
+                    <!--<RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+
+                            <TextView
+                                android:id="@+id/tv_balence_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginHorizontal="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:fontFamily="@font/open_sans_medium"
+                                android:text="@string/balance"
+                                android:textColor="@color/logo_second_color"
+                                android:textSize="@dimen/_11ssp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginHorizontal="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_toEndOf="@+id/tv_balence_title"
+                                android:fontFamily="@font/open_sans_medium"
+                                android:text="@{`₹`+viewModel.balence}"
+                                android:textColor="@color/logo_color"
+                                android:textSize="@dimen/_16ssp"
+                                tools:text="₹1009" />
+                        </RelativeLayout>
+-->
+
+
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/btn_height"
+                android:layout_alignParentEnd="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="end"
+
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:background="@drawable/btn_bg"
+                android:padding="@dimen/_5sdp"
+
+                android:text="@string/proceed"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/cardView2"
+                app:layout_constraintTop_toBottomOf="@+id/card_userDetails" />
+
+            <LinearLayout
+                android:id="@+id/ll_submit_loader"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/btn_height"
+                android:layout_alignParentEnd="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="end"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:background="@drawable/btn_bg"
+                android:orientation="vertical"
+                android:padding="@dimen/_5sdp"
+                android:text="@string/proceed"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/cardView2"
+                app:layout_constraintTop_toBottomOf="@+id/card_userDetails">
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:indeterminate="true"
+                    android:padding="@dimen/_2sdp"
+                    app:indicatorColor="@color/white"
+                    app:indicatorSize="@dimen/_15sdp"
+
+                    app:trackColor="@color/gray"
+                    app:trackThickness="@dimen/_2sdp" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/croot2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:shadowRadius="@dimen/_8sdp"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+            tools:context=".ui.activity.DashBoardActivity"
+            tools:layout_editor_absoluteX="13dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="@dimen/_12sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp">
+
+                   <ImageView
+                       android:layout_width="@dimen/_100sdp"
+                       android:layout_height="wrap_content"
+                       android:src="@drawable/epay_logo"
+                       android:layout_gravity="center_horizontal"
+                        android:adjustViewBounds="true"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                        android:fontFamily="@font/montserrat_medium_500"
+                        android:text="Name"
+
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size" />
+
+                    <EditText
+                        android:id="@+id/et_institutetype2"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edit_text_height"
+                        android:layout_marginTop="@dimen/edit_text_margin_top"
+                        android:background="@drawable/field_bg"
+                        android:drawableStart="@drawable/sub_id_icon"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:hint="Name"
+                        android:inputType="text"
+                        android:longClickable="false"
+
+                        android:padding="@dimen/_5sdp"
+                        android:text="@={viewModel.ratailerName}"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="@dimen/edit_text_size"
+                        app:requestFocus="@{viewModel.ratailerNameErrorVisible}" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_regular_400"
+                        android:text="@{viewModel.ratailerNameError}"
+                        android:textColor="@color/pink2"
+                        android:textSize="@dimen/_9ssp"
+                        app:hideErrorTextView="@{viewModel.ratailerNameErrorVisible}" />
+                    <!--mobile End-->
+
+
+                          <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                        android:fontFamily="@font/montserrat_medium_500"
+                        android:text="Shop Name"
+
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size" />
+
+                    <EditText
+                        android:id="@+id/et_institutetype3"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edit_text_height"
+                        android:layout_marginTop="@dimen/edit_text_margin_top"
+                        android:background="@drawable/field_bg"
+                        android:drawableStart="@drawable/sub_id_icon"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:hint="Shop Name"
+                        android:inputType="text"
+                        android:longClickable="false"
+
+                        android:padding="@dimen/_5sdp"
+                        android:text="@={viewModel.ratailerShopName}"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="@dimen/edit_text_size"
+                        app:requestFocus="@{viewModel.ratailerShopNameErrorVisible}" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_regular_400"
+                        android:text="@{viewModel.ratailerShopNameError}"
+                        android:textColor="@color/pink2"
+                        android:textSize="@dimen/_9ssp"
+                        app:hideErrorTextView="@{viewModel.ratailerShopNameErrorVisible}" />
+                    <!--mobile End-->
+
+
+                          <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                        android:fontFamily="@font/montserrat_medium_500"
+                        android:text="Email Address"
+
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size" />
+
+                    <EditText
+                        android:id="@+id/et_institutetype4"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/edit_text_height"
+                        android:layout_marginTop="@dimen/edit_text_margin_top"
+                        android:background="@drawable/field_bg"
+                        android:drawableStart="@drawable/sub_id_icon"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:hint="Email"
+                        android:inputType="textEmailAddress"
+                        android:longClickable="false"
+
+                        android:padding="@dimen/_5sdp"
+                        android:text="@={viewModel.ratailerEmail}"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="@dimen/edit_text_size"
+                        app:requestFocus="@{viewModel.ratailerEmailErrorVisible}" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_regular_400"
+                        android:text="@{viewModel.ratailerEmailError}"
+                        android:textColor="@color/pink2"
+                        android:textSize="@dimen/_9ssp"
+                        app:hideErrorTextView="@{viewModel.ratailerEmailErrorVisible}" />
+                    <!--mobile End-->
+
+
+
+                          <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                        android:fontFamily="@font/montserrat_medium_500"
+                        android:text="Address"
+
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size" />
+
+                    <EditText
+                        android:id="@+id/et_institutetype5"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_60sdp"
+                        android:layout_marginTop="@dimen/edit_text_margin_top"
+                        android:background="@drawable/field_bg"
+                        android:drawableStart="@drawable/sub_id_icon"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:hint="Address"
+                        android:inputType="text"
+                        android:longClickable="false"
+                        android:gravity="start"
+                        android:padding="@dimen/_5sdp"
+                        android:text="@={viewModel.ratailerAddress}"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="@dimen/edit_text_size"
+                        app:requestFocus="@{viewModel.ratailerAddressErrorVisible}" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_regular_400"
+                        android:text="@{viewModel.ratailerAddressError}"
+                        android:textColor="@color/pink2"
+                        android:textSize="@dimen/_9ssp"
+                        app:hideErrorTextView="@{viewModel.ratailerAddressErrorVisible}" />
+                    <!--mobile End-->
+
+
+
+
+
+
+
+
+
+                    <!--mobile End-->
+
+
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_userDetails2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:elevation="@dimen/_12sdp"
+                android:visibility="gone"
+                app:cardCornerRadius="@dimen/_12sdp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView3">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_gradian"
+                    android:orientation="vertical"
+
+                    android:visibility="visible">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/logo_second_color"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="center_horizontal"
+                            android:fontFamily="@font/open_sans_medium"
+                            android:gravity="center_horizontal"
+                            android:padding="@dimen/_5sdp"
+                            android:text="Subscriber info"
+                            android:textColor="@color/white"
+
+                            android:textSize="@dimen/_10ssp" />
+
+                        <ImageView
+                            android:id="@+id/img_close2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:src="@android:drawable/ic_menu_close_clear_cancel"
+                            app:tint="@color/logo_color" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_10sdp"
+                            android:fontFamily="@font/montserrat_medium_500"
+                            android:text="@{viewModel.userName}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_16ssp"
+                            tools:text="Test User" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{`(`+viewModel.type+`)`}"
+                            android:textColor="@color/logo_second_color"
+                            tools:text="(active)" />
+                    </LinearLayout>
+
+                    <!--<RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+
+                            <TextView
+                                android:id="@+id/tv_balence_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginHorizontal="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:fontFamily="@font/open_sans_medium"
+                                android:text="@string/balance"
+                                android:textColor="@color/logo_second_color"
+                                android:textSize="@dimen/_11ssp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginHorizontal="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_toEndOf="@+id/tv_balence_title"
+                                android:fontFamily="@font/open_sans_medium"
+                                android:text="@{`₹`+viewModel.balence}"
+                                android:textColor="@color/logo_color"
+                                android:textSize="@dimen/_16ssp"
+                                tools:text="₹1009" />
+                        </RelativeLayout>
+-->
+
+
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <Button
+                android:id="@+id/btn_submit2"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/btn_height"
+                android:layout_alignParentEnd="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="end"
+                android:textColor="@color/white"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:background="@drawable/btn_bg"
+                android:padding="@dimen/_5sdp"
+
+                android:text="@string/proceed"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/cardView3"
+                app:layout_constraintTop_toBottomOf="@+id/card_userDetails2" />
+
+            <LinearLayout
+                android:id="@+id/ll_submit_loader2"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/btn_height"
+                android:layout_alignParentEnd="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="end"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:background="@drawable/btn_bg"
+                android:orientation="vertical"
+                android:padding="@dimen/_5sdp"
+                android:text="@string/proceed"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/cardView3"
+                app:layout_constraintTop_toBottomOf="@+id/card_userDetails2">
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:indeterminate="true"
+                    android:padding="@dimen/_2sdp"
+                    app:indicatorColor="@color/white"
+                    app:indicatorSize="@dimen/_15sdp"
+
+                    app:trackColor="@color/gray"
+                    app:trackThickness="@dimen/_2sdp" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- </androidx.core.widget.NestedScrollView>-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

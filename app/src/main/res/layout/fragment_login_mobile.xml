@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.big9.app.data.viewMovel.AuthViewModel" />
+
+    </data>
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cons_login"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_100sdp"
+                android:fontFamily="@font/montserrat_medium_500"
+                android:gravity="center_horizontal"
+                android:text="Secured Login"
+                android:textColor="@color/title_header2"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/textView3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvAppVersion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_medium_500"
+                android:gravity="center_horizontal"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toTopOf="@+id/textView3"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mobile_no"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:paddingBottom="@dimen/_10sdp"
+                app:layout_constraintBottom_toTopOf="@+id/edt_ph_no" />
+
+
+            <EditText
+                android:id="@+id/edt_ph_no"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:background="@drawable/textview_shape"
+                android:elevation="@dimen/_12sdp"
+                android:ems="10"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:fontFamily="@font/montserrat_medium_500"
+                android:gravity="center_vertical"
+                android:hint="@string/mobile_no_hint"
+                android:maxLength="10"
+                android:inputType="phone"
+                android:paddingStart="@dimen/_12sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingBottom="@dimen/_4sdp"
+                android:text="@={viewModel.keyPadValue}"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:textSize="@dimen/_18ssp"
+                app:layout_constraintBottom_toTopOf="@+id/btn_confirm_location"
+                tools:ignore="Autofill,RtlSymmetry" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.mobError}"
+                android:textColor="@color/pink2"
+                app:layout_constraintTop_toBottomOf="@+id/edt_ph_no"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_confirm_location"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:background="@drawable/teal_button_bg"
+                android:fontFamily="@font/russo_one"
+                android:padding="10dp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:text="@string/verifyRMN"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintBottom_toTopOf="@+id/recycle_phonePad"
+                app:layout_constraintEnd_toEndOf="@+id/edt_ph_no" />
+
+
+
+           <!-- <androidx.core.widget.NestedScrollView
+                android:id="@+id/nestedScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_20sdp"
+                app:layout_constraintTop_toBottomOf="@+id/btn_confirm_location">
+-->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycle_phonePad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_ph_no"
+                app:layout_constraintVertical_bias="1.0"
+                app:spanCount="3"
+                android:visibility="invisible"
+                tools:listitem="@layout/keypad_layout"
+                android:layout_marginBottom="@dimen/_40sdp"/>
+           <!-- </androidx.core.widget.NestedScrollView>-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

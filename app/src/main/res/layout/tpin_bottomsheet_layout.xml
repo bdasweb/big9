@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.big9.app.data.viewMovel.MyViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_12sdp"
+        android:background="@color/gray"
+        tools:context=".ui.activity.DashBoardActivity">
+
+        <ImageView
+            android:id="@+id/img_aadhar"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+
+            android:src="@drawable/security"
+            app:layout_constraintBottom_toTopOf="@+id/textView14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:text="Authorization PIN(TPIN)"
+            android:textColor="@color/logo_color"
+            app:layout_constraintBottom_toTopOf="@+id/firstPinView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+        <com.chaos.view.PinView
+            android:id="@+id/firstPinView"
+            style="@style/PinWidget.PinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:cursorVisible="true"
+            android:hint=""
+            android:focusable="false"
+            android:clickable="false"
+            android:inputType="numberPassword"
+            android:itemBackground="@drawable/white_bg_phonepad_1"
+
+
+            android:text="@{viewModel.tPin}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_4ssp"
+            android:textStyle="bold"
+            app:cursorColor="@color/pink2"
+            app:cursorWidth="1dp"
+            app:hideLineWhenFilled="true"
+            app:itemCount="6"
+            app:itemHeight="20dp"
+            app:itemRadius="8dp"
+            app:itemSpacing="10dp"
+            app:itemWidth="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/recycle_phonePad"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.533"
+            app:layout_constraintStart_toStartOf="parent"
+            app:lineColor="@color/gray"
+            app:lineWidth="1dp"
+            app:viewType="rectangle" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle_phonePad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:spanCount="3"
+            tools:listitem="@layout/keypad_layout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

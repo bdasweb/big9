@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.big9.app.data.viewMovel.MyViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_12sdp"
+        android:background="@color/white"
+        tools:context=".ui.activity.DashBoardActivity">
+
+        <ImageView
+            android:id="@+id/img_close"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:src="@drawable/close_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!--@string/settlement_amount-->
+        <TextView
+            android:id="@+id/tv_biller_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/btn_bg"
+            android:fontFamily="@font/open_sans_medium"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:text="@string/choosing_the_right_path_neft_or_imps_selecting_your_ideal_transaction_type"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/choosing_the_right_path_neft_or_imps_selecting_your_ideal_transaction_type" />
+
+        <LinearLayout
+
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_biller_name">
+
+            <LinearLayout
+                android:id="@+id/ll_IMPS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:id="@+id/yesIv"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:src="@{viewModel.IMPSIsActive?@drawable/ic_product_active:@drawable/ic_product_inactive}"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_medium_500"
+                    android:gravity="center"
+
+                    android:paddingStart="@dimen/_8sdp"
+                    android:text="@string/settle_imps"
+                    android:textColor="@{viewModel.IMPSIsActive?@color/logo_color:@color/logo_second_color}"
+                    android:textSize="@dimen/text_size"
+                    tools:ignore="RtlSymmetry"
+                    tools:textColor="@color/black" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_1sdp" />
+
+            <LinearLayout
+                android:id="@+id/ll_NEFT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:gravity="center"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:id="@+id/img_postPaid"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:src="@{viewModel.NEFTIsActive?@drawable/ic_product_active:@drawable/ic_product_inactive}"
+                    tools:ignore="ContentDescription" />
+                <!--prepaid and postpaid difference-->
+                <TextView
+                    android:id="@+id/tv_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_medium_500"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/_8sdp"
+                    android:text="@string/settle_neft"
+                    android:textColor="@{viewModel.NEFTIsActive?@color/logo_color:@color/logo_second_color}"
+                    android:textSize="@dimen/text_size"
+                    tools:ignore="RtlSymmetry"
+                    tools:textColor="@color/black" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            tools:layout_editor_absoluteX="16dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular_400"
+                android:text="@{viewModel.amtMoveToBankModeError}"
+                android:textColor="@color/pink2"
+                android:textSize="@dimen/_9ssp"
+                app:hideErrorTextView="@{viewModel.bankModeMoveToBankErrorVisible}" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                android:fontFamily="@font/montserrat_medium_500"
+                android:text="@string/amount"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <EditText
+                android:id="@+id/et_amt_bank_transpher"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_height"
+                android:layout_marginTop="@dimen/edit_text_margin_top"
+                android:background="@drawable/field_bg"
+                android:drawableStart="@drawable/sub_id_icon"
+                android:drawablePadding="@dimen/_5sdp"
+                android:hint="@string/amount"
+                android:imeOptions="actionDone"
+                android:inputType="numberDecimal"
+                android:longClickable="false"
+                android:padding="@dimen/_5sdp"
+                android:text="@={viewModel.amtMoveToBank}"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:textSize="@dimen/edit_text_size"
+                app:requestFocus="@{viewModel.amtMoveToBankErrorVisible}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular_400"
+                android:text="@{viewModel.amtMoveToBankError}"
+                android:textColor="@color/pink2"
+                android:textSize="@dimen/_9ssp"
+                app:hideErrorTextView="@{viewModel.amtMoveToBankErrorVisible}" />
+
+            <TextView
+                android:id="@+id/tv_move_to_bank_bottomsheet_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/btn_bg"
+                android:fontFamily="@font/open_sans_medium"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:text="@string/submit"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="122dp"
+                tools:text="@string/submit" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

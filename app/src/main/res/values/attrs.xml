@@ -1,0 +1,6 @@
+<resources>
+    <declare-styleable name="YourCustomAttrs">
+        <attr name="hideErrorTextView" format="boolean" />
+        <!-- Define other attributes if needed -->
+    </declare-styleable>
+</resources>

@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+
+        <variable
+            name="viewModel"
+            type="com.big9.app.data.viewMovel.MyViewModel" />
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray"
+        tools:context=".ui.activity.DashBoardActivity">
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/baseline_arrow_back_24" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingVertical="@dimen/_8sdp"
+                android:scaleType="fitStart"
+                android:src="@drawable/epay_logo" />
+
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/rootView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:shadowRadius="@dimen/_8sdp"
+                tools:context=".ui.activity.DashBoardActivity">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardCornerRadius="@dimen/_12sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_10sdp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_bold"
+                            android:gravity="center"
+                            android:text="Credit Card Payment"
+                            android:textColor="@color/logo_color"
+                            android:textSize="@dimen/_14ssp" />
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:id="@+id/ll_prePaid"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                tools:ignore="UseCompoundDrawables">
+
+                                <ImageView
+                                    android:id="@+id/yesIv"
+                                    android:layout_width="@dimen/_24sdp"
+                                    android:layout_height="@dimen/_24sdp"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:src="@{viewModel.prepaitIsActive?@drawable/ic_product_active:@drawable/ic_product_inactive}"
+                                    tools:ignore="ContentDescription" />
+
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_medium_500"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_8sdp"
+                                    android:text="@string/prepaid"
+                                    android:textColor="@{viewModel.prepaitIsActive?@color/logo_color:@color/logo_second_color}"
+                                    android:textSize="@dimen/text_size"
+                                    tools:ignore="RtlSymmetry" />
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="@dimen/_40sdp"
+                                android:layout_height="@dimen/_1sdp" />
+
+                            <LinearLayout
+                                android:id="@+id/ll_postPaid"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                tools:ignore="UseCompoundDrawables">
+
+                                <ImageView
+                                    android:id="@+id/img_postPaid"
+                                    android:layout_width="@dimen/_24sdp"
+                                    android:layout_height="@dimen/_24sdp"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:src="@{viewModel.postpaitIsActive?@drawable/ic_product_active:@drawable/ic_product_inactive}"
+                                    tools:ignore="ContentDescription" />
+                                <!--prepaid and postpaid difference-->
+                                <TextView
+                                    android:id="@+id/tv_yes"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_medium_500"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_8sdp"
+                                    android:text="Postpaid"
+                                    android:textColor="@{viewModel.postpaitIsActive?@color/logo_color:@color/logo_second_color}"
+                                    android:textSize="@dimen/text_size"
+                                    tools:ignore="RtlSymmetry" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!--16 digit card number-->
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                            android:fontFamily="@font/montserrat_medium_500"
+                            android:text="@string/_16_digit_card_number"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size" />
+                        <!--app:addTextChangeListener="@{viewModel}"-->
+                        <EditText
+                            android:id="@+id/et_card_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edit_text_height"
+                            android:layout_marginTop="@dimen/edit_text_margin_top"
+                            android:background="@drawable/field_bg"
+                            android:hint="@string/_16_digit_card_number"
+                            android:text="@={viewModel.credit_card}"
+                            app:requestFocus="@{viewModel.credit_cardErrorVisible}"
+
+                            android:longClickable="false"
+                            android:padding="@dimen/_5sdp"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:drawableStart="@drawable/pan_card_logo_ioc"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="@dimen/edit_text_size" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_regular_400"
+                            android:textColor="@color/pink2"
+                            android:textSize="@dimen/_9ssp"
+                            android:text="@{viewModel.credit_cardError}"
+                            app:hideErrorTextView="@{viewModel.credit_cardErrorVisible}"
+                            />
+
+                        <!--end 16 digit card number-->
+
+
+                        <!--START CARD HOLDER NAME-->
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                            android:fontFamily="@font/montserrat_medium_500"
+                            android:text="@string/card_holder_name"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size" />
+
+                        <EditText
+                            android:id="@+id/et_card_holder_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edit_text_height"
+                            android:layout_marginTop="@dimen/edit_text_margin_top"
+                            android:background="@drawable/field_bg"
+                            android:hint="@string/card_holder_name"
+                            android:text="@={viewModel.credit_holder_name}"
+                            app:requestFocus="@{viewModel.credit_holder_name_ErrorVisible}"
+                            app:addTextChangeListener="@{viewModel}"
+                            android:inputType="textCapCharacters"
+                            android:longClickable="false"
+
+                            android:padding="@dimen/_5sdp"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:drawableStart="@drawable/baseline_account_box_24"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="@dimen/edit_text_size" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_regular_400"
+                            android:textColor="@color/pink2"
+                            android:textSize="@dimen/_9ssp"
+                            android:text="@{viewModel.credit_holder_name_Error}"
+                            app:hideErrorTextView="@{viewModel.credit_holder_name_ErrorVisible}"
+                            />
+
+                        <!--END CARD HOLDER NAME-->
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                            android:fontFamily="@font/montserrat_medium_500"
+                            android:text="@string/enter_mobile_no_reg"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size" />
+
+                        <EditText
+                            android:id="@+id/et_mob"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edit_text_height"
+                            android:layout_marginTop="@dimen/edit_text_margin_top"
+                            android:background="@drawable/field_bg"
+                            android:hint="@string/enter_mobile_no_reg"
+                            android:text="@={viewModel.credit_mobile}"
+                            app:requestFocus="@{viewModel.credit_mobileErrorVisible}"
+                            app:addTextChangeListener="@{viewModel}"
+                            android:inputType="number"
+                            android:longClickable="false"
+                            android:maxLength="10"
+                            android:padding="@dimen/_5sdp"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:drawableStart="@drawable/baseline_phone_24"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="@dimen/edit_text_size" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_regular_400"
+                            android:textColor="@color/pink2"
+                            android:textSize="@dimen/_9ssp"
+                            android:text="@{viewModel.credit_mobile_Error}"
+                            app:hideErrorTextView="@{viewModel.credit_mobileErrorVisible}"
+                            />
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                            android:fontFamily="@font/montserrat_medium_500"
+                            android:text="@string/enter_amount_rs"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size" />
+                        <EditText
+                            android:id="@+id/et_amt"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edit_text_height"
+                            android:layout_marginTop="@dimen/edit_text_margin_top"
+                            android:background="@drawable/field_bg"
+                            android:hint="@string/enter_amount"
+                            app:drawableTint="@color/logo_color"
+                            android:text="@={viewModel.credit_amt}"
+                            app:requestFocus="@{viewModel.credit_amt_ErrorVisible}"
+                            app:addTextChangeListener="@{viewModel}"
+                            android:inputType="numberDecimal"
+                            android:longClickable="false"
+                            android:maxLength="10"
+                            android:padding="@dimen/_5sdp"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:drawableStart="@drawable/indian_rupee_symbol"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="@dimen/edit_text_size"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/cardView2"
+                            app:layout_constraintTop_toBottomOf="@+id/cardView2"
+                            />
+
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_regular_400"
+                            android:text="@{viewModel.credit_amt_Error}"
+                            app:hideErrorTextView="@{viewModel.credit_amt_ErrorVisible}"
+                            android:textColor="@color/pink2"
+                            android:textSize="@dimen/_9ssp"
+
+                            />
+                        <RadioGroup
+                        android:id="@+id/radioGroup"
+                        android:checkedButton="@={viewModel.selectedButton}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radioVisa"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.1"
+                            android:drawableStart="@drawable/visa_logo"
+                            android:layout_marginEnd="16dp"
+
+                            android:theme="@style/MyRadioButton"
+                            android:text=""/>
+
+                            <RadioButton
+                                android:id="@+id/radioMasterCard"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.1"
+
+                                android:theme="@style/MyRadioButton"
+                                android:drawableStart="@drawable/mastercard_logo"
+                                android:layout_marginEnd="16dp"
+                                android:text=""/>
+                            <RadioButton
+                                android:id="@+id/radioAmex"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.1"
+
+                                android:theme="@style/MyRadioButton"
+                                android:drawableStart="@drawable/amex"
+                                android:layout_marginEnd="16dp"
+                                android:text=""/>
+
+
+                    </RadioGroup>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_regular_400"
+                            android:textColor="@color/pink2"
+                            android:textSize="@dimen/_9ssp"
+                            android:visibility="gone"
+                            android:text="Select card type"
+                            app:hideErrorTextView="@{viewModel.select_card_type_ErrorVisible}"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/edit_text_title_margin_top"
+                            android:fontFamily="@font/montserrat_medium_500"
+                            android:text="@string/remarks"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size" />
+
+                        <EditText
+                            android:id="@+id/et_remarks"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edit_text_height"
+                            android:layout_marginTop="@dimen/edit_text_margin_top"
+                            android:background="@drawable/field_bg"
+                            android:hint="@string/remarks"
+                            android:text="@={viewModel.credit_remarks}"
+                            app:requestFocus="@{viewModel.credit_remarks_ErrorVisible}"
+                            app:addTextChangeListener="@{viewModel}"
+                            android:inputType="text"
+                            android:longClickable="false"
+                            android:padding="@dimen/_5sdp"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:drawableStart="@drawable/comment_svgrepo_com"
+                            android:drawableTint="@color/logo_color"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="@dimen/edit_text_size" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_regular_400"
+                            android:textColor="@color/pink2"
+                            android:textSize="@dimen/_9ssp"
+                            android:text="@{viewModel.credit_remarks_Error}"
+                            app:hideErrorTextView="@{viewModel.credit_remarks_ErrorVisible}"
+                            />
+
+                        <!--END CARD HOLDER NAME-->
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <Button
+                    android:id="@+id/btn_submit"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="end"
+                    android:layout_marginVertical="@dimen/_5sdp"
+                    android:background="@drawable/btn_bg"
+                    android:padding="@dimen/_5sdp"
+                    android:text="@string/proceed"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/cardView2"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.big9.app.data.viewMovel.MyViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray"
+        android:minHeight="@dimen/_200sdp"
+        android:padding="@dimen/_12sdp"
+        tools:context=".ui.activity.DashBoardActivity">
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_medium"
+            android:text="@string/m_atm_transaction"
+            android:textColor="@color/logo_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/open_sans_medium"
+            android:text="@string/select_device_model"
+            android:textColor="@color/logo_second_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:checked="true"
+            android:drawableTint="@color/black"
+            android:text="@string/vm30"
+            android:textColor="@color/logo_color"
+            android:textSize="@dimen/_11ssp"
+            app:buttonTint="@color/logo_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+        <ImageView
+            android:id="@+id/img_balance_enquary"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:src="@drawable/matm_device_logo"
+            app:layout_constraintEnd_toStartOf="@+id/img_cashwithdraw"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioButton" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_medium"
+            android:text="@string/balance_enquery"
+            android:textColor="@color/logo_color"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintEnd_toEndOf="@+id/img_balance_enquary"
+            app:layout_constraintStart_toStartOf="@+id/img_balance_enquary"
+            app:layout_constraintTop_toBottomOf="@+id/img_balance_enquary" />
+
+        <ImageView
+            android:id="@+id/img_cashwithdraw"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:layout_marginBottom="@dimen/_300sdp"
+            android:src="@drawable/matm_device_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/img_balance_enquary"
+            app:layout_constraintTop_toTopOf="@+id/img_balance_enquary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_medium"
+            android:text="@string/cash_withdrawal_matm"
+            android:textColor="@color/logo_color"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintEnd_toEndOf="@+id/img_cashwithdraw"
+            app:layout_constraintStart_toStartOf="@+id/img_cashwithdraw"
+            app:layout_constraintTop_toBottomOf="@+id/img_cashwithdraw" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_20sdp"
+            android:background="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView20" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
