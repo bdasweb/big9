@@ -465,8 +465,9 @@ class OtpMobileFragment : BaseFragment()  {
                        "secretkey" to API_KEY,
                        "mobile" to loginMobileNumber,
                        "refid" to loginMobileReferanceNumber,
-                       "token" to sharedPreff.getFcnToken().toString(),
-                       "app_version" to  MethodClass.appVersion(binding.root.context)
+                       "ftoken" to sharedPreff.getFcnToken().toString(),
+                       "app_version" to  MethodClass.appVersion(binding.root.context),
+                       "deviceDetails" to MethodClass.getDeviceDetails(binding.root.context)
                    )
                    val gson= Gson()
                    var jsonString = gson.toJson(data)

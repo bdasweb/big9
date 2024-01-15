@@ -9,7 +9,6 @@ import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
-import android.graphics.Rect
 import android.graphics.pdf.PdfDocument
 import android.net.Uri
 import android.os.AsyncTask
@@ -64,7 +63,7 @@ class ReportFragment : BaseFragment()  {
     private var lastClickTime1: Long = 0
     private var lastClickTime2: Long = 0
     private var lastClickTime3: Long = 0
-    private val batchCount = 600
+    private val LINES_PER_PAGE = 30
     var isAsintask=true
     var printList = ArrayList<String>()
     private val myViewModel: MyViewModel by activityViewModels()
@@ -153,7 +152,8 @@ class ReportFragment : BaseFragment()  {
     private fun generateAndSaveImages(data: String, outputDir: File) {
         val fileName = "report_${System.currentTimeMillis()}.pdf" // Create a unique file name
         val file = File(outputDir, fileName)
-        //saveToPdf(data, file)
+        saveToPdf(data, file)
+        //createPdfWithCanvas(data, file)
         Log.d("TAG_pdf_file", "generateAndSaveImages: "+file)
        /* for ((index, item) in data.withIndex()) {
             // Generate a bitmap image for each item in the list
@@ -173,7 +173,7 @@ class ReportFragment : BaseFragment()  {
 
 
 
-        saveToPdf(data, file)
+       // saveToPdf(data, file)
 
 
 
@@ -194,22 +194,219 @@ class ReportFragment : BaseFragment()  {
 
         return bitmap
     }
+//
+//    private fun saveToPdf(data: String, file: File) {
+//        val outputStream: OutputStream = FileOutputStream(file)
+//        val pdfDocument = PdfDocument()
+//        val pageInfo = PdfDocument.PageInfo.Builder(300, 600, 1).create()
+//        val page = pdfDocument.startPage(pageInfo)
+//        val canvas = page.canvas
+//        val paint = Paint()
+//        paint.color = Color.BLACK
+//        paint.textSize = 12f
+//
+//        val textLines = data.split("\n")
+//        var yPos = 50f
+//        val lineHeight = 20f // Adjust this value based on your requirements for line spacing
+//
+//        for (line in textLines) {
+//            val textBounds = Rect()
+//            paint.getTextBounds(line, 0, line.length, textBounds)
+//            val textHeight = textBounds.height().toFloat()
+//
+//            if (yPos + textHeight < pageInfo.pageHeight) {
+//                canvas.drawText(line, 80f, yPos + textHeight, paint)
+//                yPos += lineHeight + textHeight
+//            } else {
+//                // Create a new page if the current page is full
+//                pdfDocument.finishPage(page)
+//                val newPage = pdfDocument.startPage(pageInfo)
+//                val newCanvas = newPage.canvas
+//                newCanvas.drawText(line, 80f, yPos, paint)
+//                yPos = lineHeight + textHeight
+//            }
+//        }
+//
+//        pdfDocument.finishPage(page)
+//        pdfDocument.writeTo(outputStream)
+//        pdfDocument.close()
+//        outputStream.close()
+//        loader?.dismiss()
+//    }
+fun createPdfWithCanvas(data: String, file: File,) {
+    // Create a new PdfDocument
+    val pdfDocument = PdfDocument()
+
+    // Create a PageInfo object with the desired page attributes
+    val pageInfo = PdfDocument.PageInfo.Builder(595, 842, 1).create()
+
+    // Start a new page
+    val page = pdfDocument.startPage(pageInfo)
+
+    // Get the Canvas object from the page
+    val canvas = page.canvas
+
+    // Create a Paint object for drawing text
+    val paint = Paint().apply {
+        color = Color.BLACK
+        textSize = 12f
+    }
+
+    // Draw text on the Canvas from the printList
+    var yPos = 50f
+    for (print in printList) {
+        canvas.drawText(print, 80f, yPos, paint)
+        yPos += 20f // Adjust the vertical spacing between lines
+    }
+
+    // Finish the page
+    pdfDocument.finishPage(page)
+
+    // Create a file to save the PDF
+    //val outputStream: OutputStream = FileOutputStream(file)
+
+    // Write the PDF content to the file
+    FileOutputStream(file).use { outputStream ->
+        pdfDocument.writeTo(outputStream)
+    }
+
+    // Close the PdfDocument
+    pdfDocument.close()
+}
+    /*private fun saveToPdf(data: String, file: File) {
+        val outputStream: OutputStream = FileOutputStream(file)
+        val pdfDocument = PdfDocument()
+        val pageInfo = PdfDocument.PageInfo.Builder(595, 842, 1).create()
+        val lines = data.lines()
+        var pageIndex = 0
+
+        while (pageIndex * LINES_PER_PAGE < lines.size) {
+            val page = pdfDocument.startPage(pageInfo)
+            val canvas = page.canvas
+            val paint = Paint()
+            paint.color = Color.BLACK
+            paint.textSize = 12f
+
+            // Calculate the visible portion of data for this page
+            val startIndex = pageIndex * LINES_PER_PAGE
+            val endIndex = minOf((pageIndex + 1) * LINES_PER_PAGE, lines.size)
+            val visibleData = lines.subList(startIndex, endIndex).joinToString("\n")
+
+            // Draw the visible data on the page
+            var yPos = 50f // Adjust the starting position for the content
+            val lineHeight = 20f // Adjust this value based on your requirements for line spacing
+            val textLines = visibleData.split("\n")
+            for (line in textLines) {
+                canvas.drawText(line, 80f, yPos, paint)
+                yPos += lineHeight
+            }
+
+            pdfDocument.finishPage(page)
+            pageIndex++
+        }
+
+        // Write the PDF document to the output stream
+        pdfDocument.writeTo(outputStream)
+        pdfDocument.close()
+        outputStream.close()
+        loader?.dismiss()
+    }*/
+
 
     private fun saveToPdf(data: String, file: File) {
         val outputStream: OutputStream = FileOutputStream(file)
         val pdfDocument = PdfDocument()
-        val pageInfo = PdfDocument.PageInfo.Builder(300, 600, 1).create()
+        val pageInfo = PdfDocument.PageInfo.Builder(595, 842, 1).create()
+        val lines = data.lines()
+        var pageIndex = 0
+
+        while (pageIndex * LINES_PER_PAGE < lines.size) {
+            val page = pdfDocument.startPage(pageInfo)
+            val canvas = page.canvas
+            val paint = Paint()
+            paint.color = Color.BLACK
+            paint.textSize = 12f
+
+            // Calculate the visible portion of data for this page
+            val startIndex = pageIndex * LINES_PER_PAGE
+            val endIndex = minOf((pageIndex + 1) * LINES_PER_PAGE, lines.size)
+            val visibleData = lines.subList(startIndex, endIndex).joinToString("\n")
+
+            // Draw the visible data on the page
+            var yPos = 50f // Adjust the starting position for the content
+            val lineHeight = 20f // Adjust this value based on your requirements for line spacing
+            val textLines = visibleData.split("\n")
+            for (line in textLines) {
+                canvas.drawText(line, 80f, yPos, paint)
+                yPos += lineHeight
+            }
+
+            pdfDocument.finishPage(page)
+            pageIndex++
+        }
+
+        // Write the PDF document to the output stream
+        pdfDocument.writeTo(outputStream)
+        pdfDocument.close()
+        outputStream.close()
+    }
+
+    /*private fun saveToPdf(data: String, file: File) {
+        val outputStream: OutputStream = FileOutputStream(file)
+        val pdfDocument = PdfDocument()
+        val pageInfo = PdfDocument.PageInfo.Builder(595, 842, 1).create()
         val page = pdfDocument.startPage(pageInfo)
         val canvas = page.canvas
         val paint = Paint()
         paint.color = Color.BLACK
         paint.textSize = 12f
 
+
+
+
+
+        // Draw the title at the top of the page
+        val titleBounds = Rect()
+        paint.getTextBounds("Sample", 0, "Sample".length, titleBounds)
+        val titleHeight = titleBounds.height().toFloat()
+        canvas.drawText("Sample", 80f, 50f, paint)
+
+
         val textLines = data.split("\n")
-        var yPos = 50f
+        var yPos = 10f
+        for (line in textLines) {
+            canvas.drawText(line, 10f, yPos, paint)
+            yPos += 20f
+        }
+        pdfDocument.finishPage(page)
+        pdfDocument.writeTo(outputStream)
+        pdfDocument.close()
+        outputStream.close()
+        loader?.dismiss()
+    }*/
+
+   /* private fun saveToPdf(title: String, content: String, file: File) {
+        val outputStream: OutputStream = FileOutputStream(file)
+        val pdfDocument = PdfDocument()
+        val pageInfo = PdfDocument.PageInfo.Builder(595, 842, 1).create() // A4 size in points (72 points = 1 inch)
+        val page = pdfDocument.startPage(pageInfo)
+        val canvas = page.canvas
+        val paint = Paint()
+        paint.color = Color.BLACK
+        paint.textSize = 12f
+
+        // Draw the title at the top of the page
+        val titleBounds = Rect()
+        paint.getTextBounds(title, 0, title.length, titleBounds)
+        val titleHeight = titleBounds.height().toFloat()
+        canvas.drawText(title, 80f, 50f, paint)
+
+        // Draw the content below the title
+        val contentLines = content.split("\n")
+        var yPos = 100f // Adjust the starting position for the content
         val lineHeight = 20f // Adjust this value based on your requirements for line spacing
 
-        for (line in textLines) {
+        for (line in contentLines) {
             val textBounds = Rect()
             paint.getTextBounds(line, 0, line.length, textBounds)
             val textHeight = textBounds.height().toFloat()
@@ -227,32 +424,14 @@ class ReportFragment : BaseFragment()  {
             }
         }
 
+        // Finish the page and write the PDF content to the file
         pdfDocument.finishPage(page)
         pdfDocument.writeTo(outputStream)
+
+        // Close the document and the output stream
         pdfDocument.close()
         outputStream.close()
         loader?.dismiss()
-    }
-
-    /*private fun saveToPdf(data: String, file: File) {
-        val outputStream: OutputStream = FileOutputStream(file)
-        val pdfDocument = PdfDocument()
-        val pageInfo = PdfDocument.PageInfo.Builder(300, 600, 1).create()
-        val page = pdfDocument.startPage(pageInfo)
-        val canvas = page.canvas
-        val paint = Paint()
-        paint.color = Color.BLACK
-        paint.textSize = 12f
-        val textLines = data.split("\n")
-        var yPos = 50f
-        for (line in textLines) {
-            canvas.drawText(line, 80f, yPos, paint)
-            yPos += 20f
-        }
-        pdfDocument.finishPage(page)
-        pdfDocument.writeTo(outputStream)
-        pdfDocument.close()
-        outputStream.close()
     }*/
     /*private fun saveToPdf(data: String, file: File) {
         val outputStream: OutputStream = FileOutputStream(file)
@@ -314,7 +493,7 @@ class ReportFragment : BaseFragment()  {
                         data="\n"+data+"\n"+  it+"\n\n"
                     }
                     Log.d("TAG_rawData", "onViewClick: "+data)
-                   // generateAndSaveImagesInBatches(data)
+                    generateAndSaveImagesInBatches(data)
                     //writeArrayToFile(tvDownload.context,"report.ixt",printList)
                 }
 
@@ -826,12 +1005,15 @@ class ReportFragment : BaseFragment()  {
                                             "\nReceiver Mobile No.: $receiverMobileNo"
 
                                     reportList.add(ReportModel(PaymentBYId,LastTransactionAmount,LastTransactionTime,AmountMode,0,desc,imageInt = R.drawable.send_logo))
-                                    val print="Payment Id : $PaymentBYId"+
-                                            "Last Transaction Amount : $LastTransactionAmount"+
-                                            "Last Transaction Time : $LastTransactionTime"+
-                                            "Amount Mode : $AmountMode"+
-                                            "Amount Mode : $AmountMode"+
+                                    val print=
+                                        "Payment Id : $PaymentBYId\n"+
+                                            "Last Transaction Amount : $LastTransactionAmount\n"+
+                                            "Last Transaction Time : $LastTransactionTime\n"+
+                                            "Amount Mode : $AmountMode\n"+
+                                            "Amount Mode : $AmountMode\n"+
                                             ""+desc
+
+
 
                                     printList.add(print)
 

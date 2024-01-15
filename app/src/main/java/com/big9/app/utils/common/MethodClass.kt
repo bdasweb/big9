@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.ActivityNotFoundException
 import android.content.Context
+import android.content.Context.TELEPHONY_SERVICE
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
@@ -13,11 +14,13 @@ import android.net.NetworkCapabilities
 import android.net.Uri
 import android.os.Build
 import android.provider.Settings
+import android.telephony.TelephonyManager
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.big9.app.R
 import com.big9.app.ui.activity.RegActivity
 import com.big9.app.utils.helpers.SharedPreff
@@ -210,6 +213,32 @@ object MethodClass {
         val formatter = SimpleDateFormat(dateFormat, Locale.getDefault())
         return formatter.format(Date())
     }
+
+
+    fun getDeviceDetails(context: Context): Map<String, String> {
+        val deviceName = Build.MANUFACTURER
+        val model = Build.MODEL
+        val version = Build.VERSION.RELEASE
+        val sdkVersion = Build.VERSION.SDK_INT
+        val uniqueId=getDeviceUniqueId(context)
+
+        val  data = mapOf(
+            "deviceName" to deviceName.toString(),
+            "model" to model.toString(),
+            "version" to version.toString(),
+            "sdkVersion" to sdkVersion.toString(),
+            "uniqueId" to uniqueId.toString(),
+        )
+
+        return data
+    }
+
+    fun getDeviceUniqueId(context: Context): String {
+        return Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID)
+    }
+
+
+
 }
 
 

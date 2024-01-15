@@ -11,6 +11,7 @@ import android.os.Environment
 import android.provider.Settings
 import android.text.method.DigitsKeyListener
 import android.text.method.KeyListener
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -259,22 +260,26 @@ class LoginMobileFragment : BaseFragment() {
             btnConfirmLocation.setOnClickListener {
                 authViewModel.mobError.value=""
                 if (viewModel?.keyPadValue?.value?.length==10){
-
+                    Log.d("TAG_deviceData", "onViewClick: "+MethodClass.getDeviceDetails(binding.root.context))
+                    //Log.d("TAG_deviceData", "onViewClick:UNIQUE "+MethodClass.getDeviceUniqueId(binding.root.context))
+                    //Log.d("TAG_deviceData", "onViewClick:IMEI "+MethodClass.getIMEI(binding.root.context))
                     viewModel?.keyPadValue?.value?.let {
                         loadingPopup?.show()
                         loginMobileNumber=it
                         loginMobileReferanceNumber="com.big9.app"+generateRandomNumberInRange().toString()
-                        //"9356561988"
+
                         val data = mapOf(
                             "clientid" to CLIENT_ID,
                             "secretkey" to API_KEY,
                             "mobile" to loginMobileNumber,
                             "refid" to loginMobileReferanceNumber,
-                            "token" to sharedPreff.getFcnToken().toString(),
-                            "app_version" to  MethodClass.appVersion(binding.root.context)
+                            "ftoken" to sharedPreff.getFcnToken().toString(),
+                            "app_version" to  MethodClass.appVersion(binding.root.context),
+                            "deviceDetails" to MethodClass.getDeviceDetails(binding.root.context)
                         )
                         val gson= Gson()
                         var jsonString = gson.toJson(data)
+                        Log.d("TAG_jsondata", "onViewClick: "+jsonString.encrypt())
                         viewModel?.authLoginRegistration(jsonString.encrypt())
                     }
 
